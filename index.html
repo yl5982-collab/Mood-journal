@@ -3,52 +3,83 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f7f3">
+  <meta name="theme-color" content="#f8f8f2">
   <title>Daylight — a little room to grow</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-overrides.css?v=soft-pastel-3">
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="#home" aria-label="Daylight home"><span class="brand-mark">✳</span><span>daylight<span class="brand-period">.</span></span></a>
-      <p class="side-label">YOUR SPACE</p>
+      <a class="brand" href="#top" aria-label="Daylight home"><span class="brand-mark">✳</span><span>daylight<span class="brand-period">.</span></span></a>
+      <p class="side-label">YOUR LITTLE WORLD</p>
       <nav class="nav" aria-label="Main navigation">
-        <a class="nav-link active" href="#home"><span>⌂</span> Today</a>
-        <a class="nav-link" href="#bright"><span>☼</span> Bright Finds</a>
-        <a class="nav-link" href="#unburden"><span>☁</span> The Unburdening</a>
-        <a class="nav-link" href="#lookback"><span>▦</span> Look back</a>
+        <a class="nav-link active" href="#top"><span>⌂</span> Today</a>
+        <a class="nav-link" href="#landscape"><span>✿</span> My places</a>
+        <a class="nav-link" href="#calendar"><span>▦</span> Memory calendar</a>
       </nav>
-      <div class="side-note"><div class="note-spark">✦</div><p>Small steps still<br>move you forward.</p><span>— a note for today</span></div>
-      <div class="profile"><div class="avatar">J</div><div><strong>Jamie</strong><small>Your space, your pace</small></div><button class="dots" aria-label="More options">···</button></div>
+      <div class="side-note"><span>✧</span><p>Every day holds<br>more than one thing.</p><small>A gentle reminder</small></div>
+      <div class="profile"><div class="avatar">J</div><div><strong>Jamie</strong><small>Your space, your pace</small></div><span class="profile-sun">☼</span></div>
     </aside>
 
-    <main id="home" class="main-content">
-      <header class="topbar"><div><span class="eyebrow" id="today-date">YOUR DAILY PAUSE</span><h1>A little room to grow.</h1></div><button class="icon-button" aria-label="Notifications">♡</button></header>
-      <section class="welcome-card">
-        <div class="welcome-copy"><span class="sun-tag">✦ &nbsp; A MOMENT FOR YOU</span><h2>You made it here.<br><em>That counts.</em></h2><p>No need to have it all figured out. Take a breath, notice what’s here, and start wherever you are.</p><a class="text-link" href="#bright">Begin today’s check-in <span>→</span></a></div>
-        <div class="sun-art" aria-hidden="true"><div class="sun-core"></div><span class="orb orb-one">✦</span><span class="orb orb-two">✧</span><span class="orb orb-three">·</span><div class="hill hill-back"></div><div class="hill hill-front"></div></div>
+    <main class="main-content" id="top">
+      <header class="topbar"><div><span class="eyebrow" id="today-date">YOUR DAILY PAUSE</span><h1>A little room to grow.</h1></div><button class="today-button" id="jump-today" type="button">Today <span>↗</span></button></header>
+
+      <section class="landscape" id="landscape" aria-label="A connected landscape for little wins, gratitude, and hard moments">
+        <div class="land-half day-half">
+          <div class="sun-disc" aria-hidden="true"></div>
+          <div class="land-copy"><span class="land-label">DAYLIGHT · GROWING THINGS</span><h2>Every little win helps you grow.</h2><p>Tap the tree to add a fruit and keep a moment of progress.</p></div>
+          <div class="tree-art" id="tree-hotspot" role="group" tabindex="0" aria-label="Tap the tree to add a Bright Find"><div class="tree-canopy canopy-back"></div><div class="tree-canopy canopy-left"></div><div class="tree-canopy canopy-right"></div><div class="tree-trunk"></div><div class="tree-branch branch-left"></div><div class="tree-branch branch-right"></div><div class="tree-fruits" id="tree-fruits"></div><div class="tree-ground"></div></div>
+          <div class="land-stat tree-stat"><strong id="tree-scene-count">0 wins grown</strong><small>Nurtured by your steps.</small></div>
+        </div>
+        <div class="land-half night-half" id="tide-hotspot" role="group" tabindex="0" aria-label="Tap the shoreline water to write down a hard feeling">
+          <div class="moon-disc" aria-hidden="true">✦</div>
+          <div class="land-copy"><span class="land-label">MOONLIGHT · MAKING SPACE</span><h2>Hard feelings can move like the tide.</h2><p>Tap the water to name what’s hard and find a next step.</p></div>
+          <div class="land-stat night-stat"><strong id="pool-scene-count">0 hard moments held</strong><small>Set down gently · every story kept.</small></div>
+        </div>
+        <div class="pool-art" aria-hidden="false"><svg class="pool-mementos" id="pool-mementos" viewBox="0 0 1000 240" preserveAspectRatio="none" aria-label="Saved hard-moment waves"></svg></div>
+        <div class="shoreline" aria-hidden="true"></div>
+        <button type="button" class="shore-bottle" id="jar-hotspot" aria-label="Open the drift bottle at the shoreline to add a thank-you note"><span class="bottle-cork"></span><span class="bottle-glass"><span class="bottle-note">gratitude</span></span></button><div class="bottle-stars" id="bottle-stars" aria-label="Saved gratitude stars"></div>
+        <div class="land-divider" aria-hidden="true"><span>☼</span><i></i><span>☾</span></div>
       </section>
 
-      <section class="mood-section"><div class="section-heading"><div><span class="eyebrow">FIRST, JUST NOTICE</span><h2>How are you arriving today?</h2></div><span class="optional">No wrong answers</span></div>
-        <div class="mood-picker" role="group" aria-label="Choose your mood">
-          <button class="mood-option" data-mood="Low"><span>🌧️</span><small>Low</small></button><button class="mood-option" data-mood="Tender"><span>🌱</span><small>Tender</small></button><button class="mood-option" data-mood="Steady"><span>☁️</span><small>Steady</small></button><button class="mood-option" data-mood="Good"><span>🌤️</span><small>Good</small></button><button class="mood-option" data-mood="Bright"><span>☀️</span><small>Bright</small></button>
-        </div><p id="mood-message" class="mood-message" aria-live="polite">Every feeling is welcome here.</p>
+      <section class="checkin-section" aria-labelledby="checkin-title"><div class="section-title"><div><span class="eyebrow">A MOMENT TO ARRIVE</span><h2 id="checkin-title">How are you feeling today?</h2><p id="checkin-date-note" class="checkin-date-note">Your mood is saved to today.</p></div><span class="quiet-note">All of you is welcome here.</span></div>
+        <div class="mood-options" role="group" aria-label="Select today’s mood">
+          <button class="mood-choice" type="button" data-mood="Low" aria-label="Low mood"><span>🌧️</span><small>Low</small></button><button class="mood-choice" type="button" data-mood="Tender" aria-label="Tender mood"><span>🌱</span><small>Tender</small></button><button class="mood-choice" type="button" data-mood="Steady" aria-label="Steady mood"><span>☁️</span><small>Steady</small></button><button class="mood-choice" type="button" data-mood="Good" aria-label="Good mood"><span>🌤️</span><small>Good</small></button><button class="mood-choice" type="button" data-mood="Bright" aria-label="Bright mood"><span>☀️</span><small>Bright</small></button>
+        </div><div class="checkin-bottom"><p id="mood-message" aria-live="polite">A check-in is enough. You can add more when you’re ready.</p><span id="today-entry-count">No moments gathered yet</span></div>
       </section>
 
-      <section class="journaling-grid">
-        <article class="journal-card bright-card" id="bright"><div class="card-top"><div class="card-icon bright-icon">✦</div><span class="count-badge"><b id="bright-count">0</b> collected</span></div><span class="eyebrow">NOTICE THE GOOD</span><h2>Bright Finds</h2><p>Little wins, kind moments, things you did even when it was hard. They all belong here.</p><form id="bright-form" class="entry-form"><label class="sr-only" for="bright-input">Add a bright find</label><input id="bright-input" maxlength="180" placeholder="A small thing I’m proud of…" required><button aria-label="Add bright find">＋</button></form><div id="bright-list" class="entry-list"><div class="empty-state">Your little lights will gather here <span>✧</span></div></div><div class="jar-row" aria-hidden="true"><div class="jar"><div id="jar-fill" class="jar-fill"></div><span>✦</span></div><small>A jar of little wins</small></div></article>
-
-        <article class="journal-card unburden-card" id="unburden"><div class="card-top"><div class="card-icon unburden-icon">☁</div><span class="gentle-label">A softer place to land</span></div><span class="eyebrow">MAKE SPACE FOR THE HARD</span><h2>The Unburdening</h2><p>Set down what’s weighing on you. You don’t have to solve it all in this moment.</p><form id="hard-form" class="entry-form"><label class="sr-only" for="hard-input">Write what is weighing on you</label><input id="hard-input" maxlength="500" placeholder="What’s taking up space today?" required><button aria-label="Add reflection">＋</button></form><div id="hard-list" class="entry-list"><div class="empty-state">Your thoughts are safe to explore here <span>♡</span></div></div><button id="reflect-button" class="reflect-button" disabled>✧ &nbsp; Find a gentler perspective</button><div id="reflection" class="reflection" aria-live="polite" hidden></div></article>
+      <section class="ritual-section" id="rituals" aria-labelledby="ritual-title"><div class="canvas-instruction"><span class="instruction-spark">✧</span><div><h2 id="ritual-title">Choose a place in the painting.</h2><p>Tap the tree for a little win, the drift bottle for gratitude, or the tidepool for a hard moment.</p><div class="scene-summary"><span><span class="summary-fruit-icon" aria-hidden="true">🍎</span> <b id="tree-total">0 fruits</b></span><span><svg class="summary-ripple-icon" viewBox="0 0 24 16" aria-hidden="true"><ellipse cx="12" cy="8" rx="10" ry="4.5"></ellipse><ellipse cx="12" cy="8" rx="6" ry="2.7"></ellipse><ellipse cx="12" cy="8" rx="2" ry="1"></ellipse></svg> <b id="pool-total">0 stories in the tidepool</b></span><span><span class="summary-star-icon" aria-hidden="true">★</span> <b id="jar-total">0 gratitude stars</b></span></div></div></div>
+        <form id="entry-composer" class="composer" hidden>
+          <div class="composer-heading"><div><span class="eyebrow" id="composer-eyebrow">A MOMENT FOR YOU</span><h3 id="composer-title">Write it down</h3></div><button class="close-composer" id="close-composer" type="button" aria-label="Close writing panel">×</button></div>
+          <label class="field-label" for="entry-date">When did this happen?</label><input id="entry-date" type="date" required>
+          <label class="field-label" for="entry-text" id="entry-prompt">What would you like to remember?</label>
+          <textarea id="entry-text" maxlength="800" rows="3" placeholder="Take your time. A few words are enough." required></textarea>
+          <div class="form-row"><div class="field-group"><label for="entry-category"><span>Life area <small>(optional)</small></span></label><select id="entry-category"><option value="">Choose one</option></select><input id="entry-category-custom" class="category-custom" maxlength="60" placeholder="Type your life area" hidden></div><label class="field-group"><span>Something you’re working toward <small>(optional)</small></span><input id="entry-goal" maxlength="500" placeholder="e.g. feel more confident at work"></label></div>
+          <div class="intensity-row" id="intensity-row" hidden><label for="entry-intensity">How intense does it feel right now?</label><output id="intensity-value" for="entry-intensity">5 / 10</output><input id="entry-intensity" type="range" min="1" max="10" value="5"></div>
+          <label class="consent-line local-reflection-line"><input id="ask-companion" type="checkbox" checked><span>Show a local companion preview <small>A scripted on-device reflection; this option sends nothing to an AI service.</small></span></label>
+          <label class="consent-line ai-consent-line"><input id="ask-live-ai" type="checkbox"><span>Also request a live AI reflection from OpenAI <small>This sends this note, its life-area tag, and goal text to OpenAI. API data may be retained in abuse-monitoring logs for up to 30 days by default. <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noreferrer">Data details</a>.</small></span></label>
+          <div class="composer-actions"><button class="save-entry" type="submit" id="save-entry-button">Save this moment <span>✦</span></button><span>Just for today, just for you.</span></div>
+        </form>
+        <section class="conversation-panel" id="conversation-panel" hidden aria-label="Companion conversation"><div class="conversation-heading"><div><span class="eyebrow">A GENTLE COMPANION</span><h3 id="conversation-title">A reflection for this moment</h3></div><span id="conversation-mode" class="conversation-mode"></span></div><div id="conversation-messages" class="conversation-messages" aria-live="polite"></div><form id="followup-form" class="followup-form"><label for="followup-input">What would you like to explore next?</label><textarea id="followup-input" maxlength="1200" rows="2" placeholder="Ask a question or share what came up for you…" required></textarea><label class="consent-line local-reflection-line"><input id="followup-local" type="checkbox" checked><span>Reply with a local reflection <small>This scripted response stays in your browser.</small></span></label><label class="consent-line ai-consent-line"><input id="followup-live-consent" type="checkbox"><span>Send this follow-up and journal context to OpenAI <small>This sends the follow-up, original note, life-area tag, goal, and prior conversation. Each live follow-up needs your consent. API data may be retained in abuse-monitoring logs for up to 30 days by default.</small></span></label><div class="composer-actions"><button class="save-entry" type="submit" id="followup-send">Send follow-up <span>↗</span></button></div></form></section>
       </section>
 
-      <section class="lookback" id="lookback"><div class="lookback-heading"><div><span class="eyebrow">A KINDER KIND OF ACCOUNTING</span><h2>Today, at a glance</h2></div><span class="date-pill" id="review-date"></span></div><div class="review-stats"><div class="stat"><span class="stat-icon">✦</span><strong id="review-bright">0</strong><small>bright finds</small></div><div class="stat"><span class="stat-icon">♡</span><strong id="review-hard">0</strong><small>things you carried</small></div><div class="review-message"><span>✧</span><p id="review-note">Your day is still unfolding. You can add to it whenever you like.</p></div></div></section>
+      <section class="calendar-section" id="calendar" aria-labelledby="calendar-title"><div class="calendar-header"><div><span class="eyebrow">YOUR DAYS, HELD GENTLY</span><h2 id="calendar-title">Memory calendar</h2><p>Little faces for the feeling of each day. Choose a day to revisit its moments.</p></div><div class="view-switch" role="group" aria-label="Calendar display"><button type="button" data-view="week">Week</button><button type="button" class="selected" data-view="month">Month</button><button type="button" data-view="year">Year</button></div></div>
+        <div class="calendar-toolbar"><button type="button" id="calendar-prev" aria-label="Previous period">‹</button><strong id="calendar-label"></strong><button type="button" id="calendar-next" aria-label="Next period">›</button><button type="button" id="calendar-today">Today</button><button type="button" id="export-journal">Export</button></div>
+        <div id="calendar-content" class="calendar-content" aria-live="polite"></div>
+        <div class="calendar-legend"><span><i class="legend-dot mood-low"></i>Low</span><span><i class="legend-dot mood-tender"></i>Tender</span><span><i class="legend-dot mood-steady"></i>Steady</span><span><i class="legend-dot mood-good"></i>Good</span><span><i class="legend-dot mood-bright"></i>Bright</span><span class="legend-empty">No check-in</span></div>
+        <div class="day-review" id="day-review"><div class="review-heading"><div><span class="eyebrow">YOUR PAGE FOR THE DAY</span><h3 id="selected-date-label">Today</h3></div><span id="selected-day-mood" class="selected-mood"></span></div><div class="past-entry-actions"><button type="button" data-create-entry="bright">＋ Bright Find</button><button type="button" data-create-entry="thanks">＋ Thank-you Note</button><button type="button" data-create-entry="hard">＋ Unburdening</button></div><div id="selected-day-entries" class="selected-day-entries"></div></div>
+      </section>
+
+      <section class="settings-section" id="settings"><details><summary>Personalize your journal &amp; privacy</summary><div class="settings-content"><div class="settings-intro"><h2>Your space, your words.</h2><p>Change reflection prompts, mood labels, and life-area categories. These preferences stay on this device.</p></div><form id="preferences-form" class="preferences-form"><label class="preference-field"><span>Mood labels <small>(five, comma-separated; emojis follow the order)</small></span><input id="mood-labels-setting" maxlength="160" value="Low, Tender, Steady, Good, Bright"></label><label class="preference-field"><span>Life-area categories <small>(comma-separated)</small></span><input id="categories-setting" maxlength="500" value="Work, Study, Family, Relationships, Health, Personal growth, Everyday life"></label><label class="preference-field"><span>Little-wins prompt</span><textarea id="prompt-bright-setting" rows="2"></textarea></label><label class="preference-field"><span>Gratitude prompt</span><textarea id="prompt-thanks-setting" rows="2"></textarea></label><label class="preference-field"><span>Hard-moment prompt</span><textarea id="prompt-hard-setting" rows="2"></textarea></label><button class="settings-save" type="submit">Save preferences</button></form><div class="encryption-settings"><h3>Optional on-device encryption</h3><p>Protect journal notes stored in this browser with a passphrase. If you forget it, this demo cannot recover the encrypted notes.</p><form id="encrypt-form"><label for="encrypt-passphrase">Create a passphrase (12+ characters)</label><input id="encrypt-passphrase" type="password" minlength="12" autocomplete="new-password" placeholder="Keep it somewhere safe" required><button type="submit">Encrypt this journal</button></form><div class="encrypted-controls" id="encrypted-controls" hidden><button type="button" id="lock-now">Lock now</button><button type="button" id="disable-encryption">Turn off encryption</button></div></div><p id="settings-message" class="settings-message" aria-live="polite"></p></div></details></section>
 
       <footer><span>Made for the days that ask a little more of you.</span><span>Daylight is a reflection tool, not a substitute for professional care.</span></footer>
     </main>
   </div>
+  <div class="lock-overlay" id="lock-overlay" hidden><form class="unlock-card" id="unlock-form"><span class="eyebrow">YOUR PRIVATE JOURNAL</span><h2>This journal is encrypted.</h2><p>Enter the passphrase you chose on this device to unlock your stories.</p><label for="unlock-passphrase">Passphrase</label><input id="unlock-passphrase" type="password" autocomplete="current-password" required><button type="submit">Unlock journal</button><p id="unlock-message" role="status"></p></form></div>
   <script src="script.js"></script>
 </body>
 </html>

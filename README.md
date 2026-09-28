@@ -1,66 +1,80 @@
 # Daylight ☀️
 
-Daylight is a small, browser-based e-mood journal demo for recording everyday wins, checking in with your mood, and making space for difficult feelings. It was created for a class project and inspired by the idea that small accomplishments deserve to be remembered alongside the hard parts of a day.
+Daylight is a local-first daily mood check-in and self-care journal demo. Its connected landscape gives little wins, gratitude, and difficult feelings their own place, then brings them together in a calendar.
 
-## Try the demo
+## Run locally
 
-No build tools or dependencies are required. Download or clone this repository, then open `index.html` in a modern browser. For a local web server, run `python -m http.server 8000` from the project folder and visit <http://localhost:8000>.
+Install [Node.js 18 or newer](https://nodejs.org/), then run from this folder:
 
-Entries are saved in the browser's `localStorage` for the current date. The demo resets its displayed journal on a new date. Data stays in that browser and is not synced.
+```bash
+npm start
+```
 
-## What’s included
+Open <http://127.0.0.1:4173>. The small server serves the static demo and holds the optional AI API key outside browser code. It binds to your own computer only.
 
-- A mood check-in with five choices
-- **Bright Finds**, a place to collect small wins and happy moments in a growing jar
-- **The Unburdening**, a place to record what feels hard
-- A guided perspective prompt with a few supportive, locally generated responses
-- A daily glance at the moments collected
-- Responsive layout for desktop and mobile
+## Features
 
-The reflection response is a scripted demo, not generative AI, therapy, or a clinical assessment. No AI service or account is connected. A future version could connect an AI API through a secure server, with clear consent and privacy controls.
+- Daily check-in, plus week, month, and year calendar review.
+- Tap the tree to record a **Bright Find** and grow a fruit; tap the drift bottle for a colorful gratitude star; tap the tidepool for **The Unburdening**.
+- Hover or select an apple, gratitude star, or existing water-side surf edge to review its matching entry. Surf hit areas stay clipped to the ocean; they appear as a soft highlight only on hover.
+- Select any calendar day to update its mood, add a dated note, or revisit and continue an earlier companion conversation.
+- Rate hard-moment intensity, mark it lighter, or mark it resolved for now while keeping the original story.
+- Continue a conversation below the painting. Bright Finds get affirmations and ways to build on progress; hard moments get an immediate comfort idea and a practical longer-term step. Local follow-up reflections are scripted; live follow-ups require separate consent.
+- Edit, delete, and export journal entries as JSON.
+- Customize five mood labels, life-area categories, and writing prompts.
+- Optional AES-GCM encryption of journal data stored in this browser.
 
-## Design direction
+## Optional live AI setup
 
-The app treats difficult feelings as information worth listening to rather than waste to discard. It balances recognition of positive moments with room to reflect on painful ones, and keeps encouragement gentle instead of demanding constant positivity. “Bright Finds” names the wins collection; “The Unburdening” offers a softer name for the space to write about hard moments.
+Live responses use the OpenAI Responses API from `server.js`. Copy `.env.example` to `.env`, then replace its placeholder with your API key. `.env` is ignored by Git; never put a real key in `script.js`, commit it, or share it in a chat. Alternatively, set the environment variable in your terminal:
 
-## Similar products to explore
+```powershell
+$env:OPENAI_API_KEY = "your-key"
+$env:OPENAI_MODEL = "gpt-6-astra"
+npm start
+```
 
-- [Daylio](https://daylio.net/) — quick mood and activity logging, stats, goals, and customization.
-- [Finch](https://finchcare.com/about-finch) — a self-care companion that combines small goals, journaling prompts, and playful progression.
-- [How We Feel](https://www.howwefeel.org/) — emotion check-ins, reflection, and strategies for emotional regulation; its official App Store listing describes privacy controls and on-device data storage.
-- [Reflectly](https://apps.apple.com/gb/app/reflectly-journal-ai-diary/id1241229134) — an AI-oriented journaling product positioned around working through negative thoughts and building positivity.
+The live-AI box is unchecked for each note. When checked, the app discloses that the note, its life-area tag, and goal will be sent to OpenAI; consent is sent with the request. The server sets `store: false` and does not log journal text. OpenAI states API data is not used to train models by default, but abuse-monitoring logs may retain content for up to 30 days. Review [OpenAI API data controls](https://developers.openai.com/api/docs/guides/your-data). Without a configured key, local reflections continue and the live call reports that it is unavailable.
 
-Potential ways Daylight can stand apart: pair a tangible “jar” of small wins with a structured thought reflection; make the positive and difficult sides equally easy to use; offer user-controlled, compassionate prompts instead of diagnosing; and make privacy and the limits of AI explicit. These are starting points for differentiation, not claims that other products lack these features.
+This endpoint is intended for a local class demo. A public deployment needs appropriate user authentication, request limits, secret management, privacy disclosures, and operational safeguards before users can submit private journal content.
+
+## Local storage and privacy
+
+Journal content is stored in this browser profile and is not synced to an account. Browser storage can be cleared. Export creates a readable JSON file, even if the browser copy is encrypted, so store exports carefully.
+
+Encryption is optional and uses a passphrase-derived AES-GCM key in this browser. The passphrase is not stored; if it is forgotten, the encrypted journal cannot be recovered. This is a small demo feature, not a security audit. No account-based sync is implemented.
+
+## Design and care note
+
+The page uses a continuous, soft-pastel Japanese anime coastline. The landscape starts its subtle loop automatically: canopy light and apples sway, sea light and the near-shore wash move, and the half-buried drift bottle rocks gently. Positive stories appear as fruit in the tree canopy; hard-moment entries map to existing surf edges and highlight only on hover. Daylight is a reflection tool, not a therapist, crisis service, or replacement for professional care. Companion replies are supportive suggestions, not diagnosis or treatment. If someone may be in immediate danger, contact local emergency services or a trusted person who can help now.
 
 ## Project files
 
-- `index.html` — page structure
-- `styles.css` — visual design and responsive layout
-- `script.js` — interactions and local demo state
+- `index.html` — interface and forms
+- `styles.css` and `styles-overrides.css` — responsive layout and landscape painting
+- `script.js` — check-in, local data, encryption, calendar, and reflections
+- `assets/anime-coast-wide.png` and `assets/anime-coast-mobile.png` — responsive anime-coast backgrounds
+- `server.js` — static server and private AI proxy endpoint
+- `package.json` — local start script and Node.js requirement
+- `.env.example` and `.gitignore` — safe AI setup template and local-file exclusions
+- `AGENTS.md` — work-session instructions
 
-## Connect to GitHub
+## Similar products to explore
 
-This folder can be initialized as a Git repository locally. To publish it, create an empty repository on GitHub, then run these commands in this folder (replace the URL with your repository URL):
+- [Daylio](https://daylio.net/) — mood and activity logging, statistics, goals, and customization.
+- [Finch](https://finchcare.com/about-finch) — self-care goals, journaling, and a virtual companion.
+- [How We Feel](https://www.howwefeel.org/) — emotion check-ins and strategies for emotional regulation.
+- [Reflectly](https://apps.apple.com/gb/app/reflectly-journal-ai-diary/id1241229134) — an AI-oriented journaling product.
+
+## GitHub
+
+The project is connected to [yl5982-collab/Mood-journal](https://github.com/yl5982-collab/Mood-journal). To publish changes from this folder:
 
 ```bash
-git init
-git add index.html styles.css script.js README.md
-git commit -m "Build Daylight mood journal demo"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
+git status
+git add README.md index.html script.js styles.css styles-overrides.css package.json server.js .gitignore .env.example AGENTS.md assets/anime-coast-wide.png assets/anime-coast-mobile.png
+git commit -m "Describe your changes"
+git push origin main
 ```
 
-If you use GitHub CLI and are signed in, you can instead create and push the repository with `gh repo create YOUR-REPOSITORY --public --source=. --remote=origin --push` (use `--private` if you prefer a private class project).
-
-## Future ideas
-
-- Calendar and trends view across multiple days
-- Export and delete controls for journal data
-- User-chosen reflection styles and accessibility options
-- Secure AI integration with explicit consent and a clear privacy policy
-- A support and crisis-resource screen appropriate to the user’s location
-
-## Care note
-
-Daylight is a class demo for reflection and encouragement. It is not a therapist, crisis service, or replacement for professional mental health care. If you may be in immediate danger, contact local emergency services or a trusted person who can help now.
+The real `.env` file is ignored and should never be committed; `.env.example` contains placeholders and is safe to share.

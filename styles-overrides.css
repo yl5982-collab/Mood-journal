@@ -1,0 +1,1006 @@
+/* Details for the illustrated landscape, history calendar, and entry review. */
+.landscape {
+  display: block;
+  height: 390px;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(105deg, #f5dda0 0%, #f1dfb4 23%, #c4d2b2 39%, #859e9a 53%, #506d77 69%, #273847 100%);
+  box-shadow: 0 14px 34px #35453420;
+}
+.landscape::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: radial-gradient(ellipse at 22% 16%, #fff6d77a 0, transparent 37%), radial-gradient(ellipse at 88% 8%, #bbc9d238 0, transparent 35%);
+  pointer-events: none;
+}
+.landscape::after { content:""; position:absolute; z-index:9; left:calc(50% - 95px); bottom:0; width:190px; height:39px; pointer-events:none; clip-path:ellipse(50% 70% at 50% 100%); background:linear-gradient(180deg,#ddc397,#c6a978); box-shadow:0 -3px 10px #705b3928; }
+.land-half {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  overflow: visible;
+  background: transparent;
+}
+.day-half { left: 0; }
+.night-half { right: 0; }
+.day-half, .night-half { background: transparent; }
+.day-half::after, .night-half::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.day-half::after { background: linear-gradient(90deg, #f5d98424, transparent 65%); }
+.night-half::after { background: linear-gradient(90deg, #617b7a12, #1d2b3b25); }
+.land-copy { z-index: 4; top: 25px; left: 25px; }
+.land-copy h2 { font-size: 29px; line-height: 1.08; }
+.day-half .land-copy h2 { color: #46533c; }
+.night-half .land-copy h2 { color: #f2eddb; }
+.day-half .land-copy p { color: #626d56; max-width: 225px; }
+.night-half .land-copy p { color: #d0d9d2; max-width: 225px; }
+.sun-disc { z-index: 1; right: 79px; top: 41px; width: 74px; height: 74px; box-shadow: 0 0 0 13px #f5d58c40, 0 0 0 27px #f7dfad24; }
+.moon-disc { z-index: 1; right: 87px; top: 42px; }
+.stars-field { z-index: 1; right: 23px; top: 29px; }
+.tree-art {
+  z-index: 3;
+  right: 5px;
+  bottom: 31px;
+  width: 265px;
+  height: 247px;
+  outline: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.tree-art:focus-visible, .pool-art:focus-visible, .shore-jar:focus-visible { outline: 3px solid #fff1b8; outline-offset: 3px; }
+.tree-canopy { animation: leaf-sway 5.4s ease-in-out infinite alternate; transform-origin: 55% 100%; }
+.tree-canopy { background-image: radial-gradient(ellipse at 25% 28%, #eff0bd52 0 8%, transparent 9%), radial-gradient(ellipse at 73% 30%, #d8e89b6b 0 10%, transparent 11%), radial-gradient(ellipse at 38% 70%, #405f4938 0 9%, transparent 10%), radial-gradient(ellipse at 78% 68%, #d5e29a38 0 7%, transparent 8%); }
+.canopy-left { animation-delay: -1.8s; }
+.canopy-right { animation-delay: -3.2s; }
+.tree-trunk { height: 137px; bottom: 11px; left: 125px; width: 33px; }
+.branch-left { left: 70px; bottom: 105px; }
+.branch-right { left: 130px; bottom: 123px; }
+.canopy-back { width: 141px; height: 118px; left: 67px; top: 23px; }
+.canopy-left { width: 101px; height: 98px; left: 31px; top: 52px; }
+.canopy-right { width: 105px; height: 98px; left: 136px; top: 54px; }
+.tree-ground { width: 265px; bottom: 0; }
+.tree-tap-hint, .tide-tap-hint {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid #fff9db9c;
+  border-radius: 18px;
+  padding: 5px 9px;
+  background: #fff9e5da;
+  color: #596b4c;
+  font: 700 8px var(--sans);
+  white-space: nowrap;
+  box-shadow: 0 3px 12px #38493213;
+}
+.tree-tap-hint { bottom: 29px; left: 94px; }
+.tree-art:hover .tree-tap-hint, .pool-art:hover .tide-tap-hint { background: #fffdf2; transform: translateY(-2px); }
+.pool-art {
+  z-index: 3;
+  right: 12px;
+  bottom: 31px;
+  width: 259px;
+  height: 130px;
+  cursor: pointer;
+  outline: 0;
+}
+.pool-water { width: 248px; height: 62px; bottom: 0; background: repeating-radial-gradient(ellipse at 42% 12%, #d4ebe033 0 13px, transparent 14px 30px), linear-gradient(180deg, #91c2b3, #6c9e9d 75%); animation: water-drift 5s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+.pool-ripple { animation: ripple-breathe 3.7s ease-in-out infinite alternate; transform-origin: center; }
+.ripple-two { animation-delay: -1.7s; }
+.rock-one { left: 19px; bottom: 44px; }
+.rock-two { right: 35px; bottom: 50px; }
+.rock-three { left: 112px; bottom: 15px; }
+.plant-one { left: 63px; bottom: 51px; }
+.plant-two { right: 5px; bottom: 46px; }
+.tide-tap-hint { bottom: -2px; left: 93px; background: #ecf0ddde; color: #526e70; }
+.land-count { z-index: 5; bottom: 16px; left: 18px; }
+.night-half .land-count { left: 20px; }
+.shoreline {
+  position: absolute;
+  z-index: 4;
+  left: -1%;
+  bottom: 0;
+  width: 102%;
+  height: 112px;
+  clip-path: polygon(0 45%, 9% 30%, 19% 34%, 29% 54%, 39% 72%, 49% 66%, 59% 48%, 70% 32%, 81% 39%, 91% 54%, 100% 38%, 100% 100%, 0 100%);
+  background: linear-gradient(180deg, #d4bd91, #e0ca9c 31%, #cdb486 100%);
+  opacity: .98;
+}
+.shoreline::before {
+  content: "";
+  position: absolute;
+  inset: 24px 0 0;
+  background: repeating-linear-gradient(170deg, transparent 0 19px, #fff5d021 20px 22px, transparent 23px 41px);
+}
+.shore-jar {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  bottom: 18px;
+  width: 66px;
+  height: 86px;
+  padding: 0;
+  transform: translateX(-50%);
+  border: 1.5px solid #f7e6b5;
+  border-radius: 16px 16px 20px 20px;
+  background: linear-gradient(100deg, #fff7dfaa, #f4e8c87c 52%, #fff9e9a8);
+  color: #a78340;
+  box-shadow: 0 7px 12px #463d2930, inset 5px 0 8px #ffffff72;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+.shore-jar:hover { transform: translateX(-50%) translateY(-4px); box-shadow: 0 11px 17px #463d2940, inset 5px 0 8px #ffffff72; }
+.jar-neck { position: absolute; top: -8px; left: 20px; width: 25px; height: 11px; border: 1.5px solid #f7e6b5; border-bottom: 0; border-radius: 5px 5px 0 0; background: #f4e7c6a3; }
+.jar-stars { position: absolute; top: 10px; left: 0; width: 100%; color: #b38f47; font-size: 12px; line-height: 1.7; letter-spacing: 2px; text-align: center; }
+.jar-label { position: absolute; bottom: 8px; left: 0; width: 100%; color: #84734e; font: 700 7px/1.1 var(--sans); letter-spacing: .3px; }
+.shore-hint { position: absolute; z-index: 6; left: 50%; bottom: 7px; transform: translateX(-50%); color: #72634a; font: 700 7px var(--sans); white-space: nowrap; text-shadow: 0 1px #f3dfad; }
+.land-divider { display: none; }
+.scene-feedback {
+  position: absolute;
+  z-index: 9;
+  top: 128px;
+  width: min(230px, calc(100% - 30px));
+  max-height: 130px;
+  overflow-y: auto;
+  padding: 10px 12px 11px;
+  border: 1px solid #fff9d388;
+  border-radius: 11px;
+  color: #455344;
+  background: #fff9e9eb;
+  box-shadow: 0 7px 20px #1e302720;
+  backdrop-filter: blur(7px);
+}
+.tree-feedback { left: 15px; }
+.tide-feedback { right: 15px; background: #f1f2e9eb; }
+.feedback-label { display: flex; align-items: center; gap: 6px; font-size: 7px; letter-spacing: .7px; font-weight: 700; color: #617057; }
+.feedback-label i { font-style: normal; font-size: 6px; color: #929987; letter-spacing: .5px; }
+.scene-feedback .companion-content p { font: 9px/1.45 var(--sans); color: #596456; margin: 6px 0 0; }
+.scene-feedback .companion-content p+p { margin-top: 5px; }
+.scene-feedback .companion-content b { color: #4f674d; }
+.scene-feedback .next-step { color: #506b54 !important; }
+.scene-feedback .thinking-pattern, .scene-feedback .pattern-question { display: block; margin-top: 5px; padding: 5px 7px; border-radius: 7px; background: #e7eadf; color: #647160; font: 8px/1.4 var(--sans) !important; }
+.scene-feedback .care-step { color: #496d73 !important; }
+.canvas-instruction { display: flex; align-items: center; gap: 10px; padding: 2px 2px 9px; }
+.instruction-spark { display: grid; place-items: center; flex: 0 0 29px; height: 29px; border-radius: 50%; background: #ebefe4; color: #788c68; font-size: 15px; }
+.canvas-instruction h2 { margin: 0; font: 600 15px var(--serif); }
+.canvas-instruction p { margin: 3px 0 0; font-size: 9px; color: #899084; }
+.ritual-section { padding-top: 10px; }
+@keyframes leaf-sway { from { rotate: -1.2deg; } to { rotate: 1.2deg; } }
+@keyframes water-drift { from { transform: translateY(1px) skewX(-1deg); } to { transform: translateY(-2px) skewX(1.3deg); } }
+@keyframes ripple-breathe { from { transform: scaleX(.78); opacity: .48; } to { transform: scaleX(1.13); opacity: .9; } }
+.tree-art[data-growth="growing"] .tree-canopy { transform: scale(1.035); }
+.tree-art[data-growth="leafy"] .tree-canopy { transform: scale(1.08); }
+.tree-art[data-growth="lush"] .tree-canopy { transform: scale(1.14); }
+.tree-art[data-growth="lush"] .canopy-back { background: #789967; }
+.fruit-overflow { position: absolute; right: 0; bottom: 24%; padding: 3px 5px; border-radius: 9px; color: white; background: #8b704d; font: 700 8px var(--sans); }
+.calendar-day.has-mood { background: color-mix(in srgb, currentColor 7%, transparent); }
+.calendar-day.mood-low { color: #647899; }
+.calendar-day.mood-tender { color: #70844d; }
+.calendar-day.mood-steady { color: #697c75; }
+.calendar-day.mood-good { color: #9a7336; }
+.calendar-day.mood-bright { color: #b86a37; }
+.calendar-day .day-number { color: #697267; }
+.calendar-day.selected .day-number { color: #426947; }
+.calendar-day .day-face { display: grid; place-items: center; width: 21px; height: 21px; border-radius: 50%; background: #e9ece4; font-size: 13px; }
+.calendar-day.mood-low .day-face { background: #e4eaf2; }
+.calendar-day.mood-tender .day-face { background: #e8eddd; }
+.calendar-day.mood-steady .day-face { background: #e5ece8; }
+.calendar-day.mood-good .day-face { background: #f5ecd8; }
+.calendar-day.mood-bright .day-face { background: #fae9d7; }
+.calendar-day.no-mood .day-face { background: transparent; }
+.week-view { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); gap: 5px; }
+.week-column { display: grid; justify-items: center; gap: 4px; padding: 7px 2px; border-radius: 9px; background: #e8e9df; }
+.week-label { font-size: 8px; color: #858d7f; }
+.week-column .calendar-day { width: 100%; min-height: 59px; }
+.week-column .calendar-day .day-face { width: 26px; height: 26px; font-size: 16px; }
+.week-entry-count { min-height: 9px; font-size: 7px; color: #899182; }
+.year-month .calendar-day .day-face { width: 15px; height: 15px; font-size: 9px; }
+.year-month .calendar-day.no-mood .day-face { width: 11px; height: 11px; }
+.review-entry-goal { margin-top: 6px; color: #70846a; font-size: 8px; line-height: 1.4; }
+.hard-actions { display: flex; align-items: center; gap: 10px; margin-top: 5px; flex-wrap: wrap; }
+.resolve-button { border: 0; padding: 3px 0; background: transparent; color: #7c8576; font: 500 8px var(--sans); cursor: pointer; }
+.resolve-button:hover { text-decoration: underline; }
+.resolved-label { color: #64806a; font: 600 8px var(--sans); }
+.landscape {
+  background: linear-gradient(107deg, #edcf82 0%, #e8d8a9 21%, #c7c9a1 39%, #879995 53%, #506f78 70%, #263849 100%);
+  box-shadow: 0 14px 34px #35453420, inset 0 0 0 1px #fff8e252;
+}
+.landscape::before {
+  opacity: .72;
+  background: radial-gradient(ellipse at 23% 18%, #fff9dc8a 0 1%, transparent 32%), radial-gradient(ellipse at 78% 10%, #d4e2e24d 0 2%, transparent 34%), repeating-linear-gradient(164deg, transparent 0 28px, #ffffff08 29px 30px, transparent 31px 54px);
+}
+.day-half::after { background: linear-gradient(180deg, #f5d98416 0%, transparent 42%, #75825629 100%); }
+.night-half::after { background: linear-gradient(180deg, #20384e08 0%, #1d2b3b1c 78%, #142b382f 100%); }
+.tree-canopy { animation-duration: 8.5s; background-image: radial-gradient(ellipse at 25% 28%, #eff0bd52 0 8%, transparent 9%), radial-gradient(ellipse at 73% 30%, #d8e89b6b 0 10%, transparent 11%), radial-gradient(ellipse at 38% 70%, #405f4938 0 9%, transparent 10%), radial-gradient(ellipse at 78% 68%, #d5e29a38 0 7%, transparent 8%), radial-gradient(ellipse at 50% 49%, #8ca86a 0 24%, transparent 25%); }
+.fruit { animation: none !important; }
+.shoreline { background: linear-gradient(180deg, #d5bd90, #e4cc9c 31%, #c6a978 100%); box-shadow: 0 -4px 16px #f4e5b155; }
+.shoreline::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 48% 30%, #fff3d47a 0 2px, transparent 3px), radial-gradient(ellipse at 22% 58%, #8c795237 0 1px, transparent 2px), radial-gradient(ellipse at 78% 65%, #fff1cb73 0 1px, transparent 2px); background-size: 24px 17px, 19px 22px, 27px 21px; }
+.shore-bottle { position: absolute; z-index: 8; left: 50%; bottom: 0; width: 64px; height: 116px; padding: 0; transform: translateX(-50%) rotate(-8deg); border: 0; background: transparent; cursor: pointer; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+.shore-bottle:hover { transform: translateX(-50%) translateY(-5px) rotate(-8deg); }
+.shore-bottle:focus-visible { outline: 3px solid #fff1b8; outline-offset: 4px; border-radius: 22px; }
+.bottle-cork { position: absolute; z-index: 2; top: 1px; left: 24px; width: 17px; height: 16px; border-radius: 4px 4px 2px 2px; background: linear-gradient(90deg,#9c704b,#d7ad72,#936741); box-shadow: inset 0 2px #eed19b; transition: transform .3s; }
+.bottle-glass { position: absolute; top: 13px; left: 4px; width: 56px; height: 98px; overflow: hidden; border: 2px solid #d6e6d89c; border-radius: 18px 18px 21px 21px; background: linear-gradient(110deg,#f8fff34d,#afd1c74d 48%,#fff9df5c); box-shadow: inset 5px 0 8px #fff9d67d, inset -5px 0 8px #76938e40, 0 6px 14px #35423c3d; }
+.bottle-glass::after { content:""; position:absolute; left:8px; top:4px; width:7px; height:59px; border-radius:8px; background:#ffffff70; transform:rotate(7deg); }
+.bottle-stars { position:absolute; inset:24px 0 0; display:flex; flex-wrap:wrap; justify-content:center; align-content:center; gap:4px; font-size:12px; line-height:1; }
+.bottle-stars i { color:#f4d76d; font-style:normal; text-shadow:0 1px 3px #74633180; }
+.bottle-stars i:nth-child(2) { color:#e8a0ab; }.bottle-stars i:nth-child(3) { color:#b4c7f1; }.bottle-stars i:nth-child(4) { color:#f5b476; }.bottle-stars i:nth-child(5) { color:#c7dfa0; }
+.bottle-note { position:absolute; z-index:1; bottom:8px; left:0; width:100%; color:#61766a; font:600 7px var(--sans); letter-spacing:.4px; }
+.shore-bottle.pulled-out { transform:translateX(-50%) translateY(-35px) rotate(-13deg); }
+.shore-bottle.bottle-open .bottle-cork { transform:translate(5px,-16px) rotate(22deg); }
+.scene-summary { display:flex; flex-wrap:wrap; gap:7px 15px; margin-top:7px; color:#737e70; font-size:9px; }
+.scene-summary span { white-space:nowrap; }.scene-summary b { font-weight:600; }
+.entry-controls { display:flex; gap:10px; }
+.entry-controls button { padding:0; border:0; background:none; color:#76836f; font:500 8px var(--sans); cursor:pointer; }
+.entry-controls button:hover { text-decoration:underline; }
+.encryption-settings { margin-top:22px; padding-top:16px; border-top:1px solid #dfe3d8; }
+.encryption-settings p { max-width:680px; color:#858c80; font-size:11px; line-height:1.5; }
+.encryption-settings form { display:flex; flex-wrap:wrap; align-items:end; gap:9px; }
+.encryption-settings label { width:100%; color:#667261; font-size:10px; }
+.encryption-settings input { min-width:220px; padding:9px 11px; border:1px solid #d8ded2; border-radius:8px; }
+.encryption-settings button,.unlock-card button { padding:9px 13px; border:0; border-radius:8px; background:#58785b; color:white; font:600 10px var(--sans); cursor:pointer; }
+.encrypted-controls { display:flex; gap:8px; margin-top:10px; }
+.encrypted-controls button:last-child { background:#e8e9df; color:#667261; }
+.lock-overlay { position:fixed; z-index:100; inset:0; display:grid; place-items:center; padding:20px; background:#182927d9; }
+.lock-overlay[hidden] { display:none; }
+.unlock-card { width:min(410px,100%); padding:28px; border-radius:16px; background:#f7f6ed; box-shadow:0 20px 70px #0005; }
+.unlock-card h2 { margin:8px 0; font:600 24px var(--serif); color:#455341; }
+.unlock-card p { color:#768174; font-size:12px; line-height:1.6; }
+.unlock-card label { display:block; margin:14px 0 6px; font-size:11px; }
+.unlock-card input { width:100%; padding:10px; margin-bottom:12px; border:1px solid #d8ded2; border-radius:8px; }
+.land-copy { z-index:4; top:25px; left:25px; width:min(220px,calc(100% - 40px)); }
+.land-copy h2 { margin:8px 0 6px; font:600 24px/1.05 var(--serif); letter-spacing:-.4px; }
+.day-half .land-copy h2 { color:#46533c; }.night-half .land-copy h2 { color:#f2eddb; }
+.day-half .land-copy p { color:#626d56; }.night-half .land-copy p { color:#d0d9d2; }
+.land-copy p { margin:0; max-width:210px; font:500 9px/1.55 var(--sans); }
+.conversation-panel { margin-top:14px; padding:17px 18px; border:1px solid #e2e5d9; border-radius:13px; background:#fcfcf6; box-shadow:0 7px 19px #34422c0a; }
+.conversation-panel[hidden] { display:none; }
+.conversation-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.conversation-heading h3 { margin:3px 0 0; color:#495744; font:600 17px var(--serif); }
+.conversation-mode { color:#92988c; font-size:9px; }
+.conversation-messages { display:grid; gap:9px; max-height:440px; overflow:auto; padding:12px 2px; }
+.chat-message { max-width:min(760px,92%); padding:10px 12px; border-radius:11px; background:#eef1e8; color:#556052; }
+.chat-message.from-user { justify-self:end; background:#e3ebdb; }
+.chat-message>span { color:#87907f; font-size:8px; font-weight:700; letter-spacing:.4px; }
+.chat-message p { margin:5px 0 0; font-size:11px; line-height:1.65; white-space:normal; overflow-wrap:anywhere; }
+.followup-form { display:grid; gap:8px; padding-top:8px; border-top:1px solid #e8e9df; }
+.followup-form>label:first-child { color:#687363; font-size:10px; font-weight:600; }
+.followup-form textarea { width:100%; min-height:57px; padding:10px 11px; resize:vertical; border:1px solid #dfe3d8; border-radius:9px; background:#fffefa; color:#3e463d; font:11px/1.5 var(--sans); }
+.followup-form .consent-line { margin:0; }
+.followup-form .composer-actions { padding-top:2px; }
+.past-entry-actions { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.past-entry-actions button { border:1px solid #e0e4d8; border-radius:20px; padding:6px 9px; background:#fafbf6; color:#6a7965; font:600 9px var(--sans); cursor:pointer; }
+.past-entry-actions button:hover { background:#edf2e8; }
+.checkin-date-note { margin:4px 0 0; color:#92988c; font-size:9px; }
+.field-group .category-custom { margin-top:6px; }
+.composer > input[type="date"] { width:100%; margin:0 0 10px; padding:9px 11px; border:1px solid #dfe3d8; border-radius:8px; background:#fffefa; color:#515b4f; font:11px var(--sans); }
+@media(max-width:720px) {
+  .land-copy { top:16px; left:15px; width:min(205px,56%); }
+  .land-copy h2 { font-size:21px; }
+  .land-copy p { max-width:190px; font-size:8px; }
+  .conversation-panel { padding:13px 12px; }
+  .chat-message { max-width:96%; }
+  .past-entry-actions button { font-size:8px; }
+}
+@media(max-width:410px) {
+  .land-copy { left:12px; width:53%; }
+  .land-copy h2 { font-size:18px; }
+  .land-copy p { font-size:7px; }
+}
+@media (max-width:720px) {
+  .landscape::after { bottom:calc(50% - 58px); height:44px; }
+  .shore-bottle { bottom:calc(50% - 43px); }
+  .shore-bottle.pulled-out { transform:translateX(-50%) translateY(-31px) rotate(-13deg); }
+  .landscape { background:linear-gradient(180deg,#edcf82 0%,#e8d8a9 24%,#bbc7a7 43%,#91a69b 51%,#536e78 67%,#253746 100%); }
+}
+@media (max-width: 720px) {
+  .landscape {
+    height: 650px;
+    background: linear-gradient(180deg, #f3dc9f 0%, #e9ddb6 24%, #b9cbb2 43%, #92aaa0 51%, #536e78 67%, #253746 100%);
+  }
+  .land-half { width: 100%; height: 50%; left: 0; right: auto; }
+  .day-half { top: 0; bottom: auto; }
+  .night-half { top: 50%; bottom: auto; }
+  .land-copy { top: 19px; left: 17px; }
+  .land-copy h2 { font-size: 25px; }
+  .land-copy p { max-width: 190px; font-size: 9px; }
+  .sun-disc { width: 62px; height: 62px; top: 24px; right: 72px; }
+  .moon-disc { width: 45px; height: 45px; top: 23px; right: 67px; }
+  .tree-art { width: 235px; height: 218px; right: -14px; bottom: 17px; transform: none; }
+  .tree-trunk { left: 110px; }
+  .canopy-back { left: 56px; }
+  .canopy-left { left: 20px; }
+  .canopy-right { left: 125px; }
+  .tree-ground { width: 235px; }
+  .tree-tap-hint { left: 70px; bottom: 17px; }
+  .pool-art { width: 247px; height: 119px; right: 12px; bottom: 19px; transform: none; }
+  .pool-water { width: 238px; }
+  .pool-ripple { left: 83px; }
+  .ripple-two { left: 95px; }
+  .plant-one { left: 72px; }
+  .tide-tap-hint { left: 83px; bottom: -8px; }
+  .shoreline { bottom: calc(50% - 58px); height: 124px; clip-path: polygon(0 46%, 12% 25%, 23% 32%, 37% 64%, 50% 69%, 64% 43%, 78% 29%, 90% 47%, 100% 38%, 100% 100%, 0 100%); }
+  .shore-jar { bottom: calc(50% - 43px); }
+  .shore-hint { bottom: calc(50% - 64px); font-size: 6px; }
+  .land-count { bottom: 11px; left: 12px; }
+  .night-half .land-count { left: 13px; }
+  .scene-feedback { top: 119px; bottom: auto; width: min(185px, 48%); max-height: 123px; padding: 8px 9px; }
+  .tree-feedback { left: 12px; }
+  .tide-feedback { left: 12px; right: auto; top: 119px; }
+  .scene-feedback .companion-content p { font-size: 8px; }
+  .feedback-label { flex-wrap: wrap; font-size: 6px; }
+  .canvas-instruction { align-items: flex-start; }
+  .canvas-instruction p { line-height: 1.5; }
+  .calendar-day .day-face { width: 19px; height: 19px; font-size: 12px; }
+  .week-column { gap: 2px; }
+  .week-column .calendar-day { min-height: 50px; }
+  .week-column .calendar-day .day-face { width: 22px; height: 22px; }
+  .calendar-section .calendar-day { min-height: 37px; }
+  .year-month .calendar-day { min-height: 23px; }
+}
+@media (max-width: 410px) {
+  .landscape { height: 620px; }
+  .land-copy { left: 13px; }
+  .land-copy h2 { font-size: 22px; }
+  .land-copy p { max-width: 172px; }
+  .tree-art { width: 215px; height: 201px; right: -16px; }
+  .tree-trunk { left: 103px; }
+  .canopy-back { left: 51px; width: 131px; height: 110px; }
+  .canopy-left { left: 18px; width: 93px; height: 90px; }
+  .canopy-right { left: 116px; width: 97px; height: 91px; }
+  .tree-ground { width: 215px; }
+  .pool-art { width: 218px; right: 2px; }
+  .pool-water { width: 210px; }
+  .pool-ripple { left: 69px; }
+  .ripple-two { left: 82px; }
+  .plant-one { left: 60px; }
+  .tide-tap-hint { left: 67px; }
+  .shore-jar { width: 59px; height: 78px; }
+  .scene-feedback { width: min(170px, 49%); max-height: 112px; }
+  .scene-feedback .companion-content p { font-size: 7.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+@media (max-width:720px) {
+  .night-half .land-copy { top:72px; }
+  .night-half .land-copy h2 { font-size:21px; }
+  .night-half .land-copy p { max-width:190px; font-size:8px; }
+}
+@media (max-width:410px) {
+  .night-half .land-copy { top:72px; }
+  .night-half .land-copy h2 { font-size:18px; }
+  .night-half .land-copy p { max-width:172px; font-size:7px; }
+}
+.fruit { animation:fruit-sway 3.6s ease-in-out infinite alternate !important; animation-delay:var(--fruit-delay,0s) !important; transform-origin:50% 100%; }
+@keyframes fruit-sway { from { transform:translateY(0) rotate(-4deg); } to { transform:translateY(-3px) rotate(4deg); } }
+.pool-mementos { position:absolute; z-index:4; inset:0; pointer-events:none; }
+.pool-memory { position:absolute; display:block; width:var(--ripple-size,14px); height:var(--ripple-size,14px); border:1.5px solid rgb(225 247 243 / var(--ripple-opacity,.5)); border-radius:50%; box-shadow:0 0 9px rgb(190 235 231 / var(--ripple-opacity,.5)),inset 0 0 4px rgb(222 248 245 / var(--ripple-opacity,.5)); transform:translate(-50%,-50%); animation:journal-ripple 3.3s ease-out infinite; animation-delay:var(--ripple-delay,0s); }
+.pool-memory::before,.pool-memory::after { content:""; position:absolute; inset:20%; border:1px solid rgb(228 250 246 / var(--ripple-opacity,.5)); border-radius:50%; }
+.pool-memory::after { inset:-27%; opacity:.55; }
+.pool-memory.memory-settled { animation:none; border-color:#b9d8d2; box-shadow:none; }
+.pool-memory.memory-settled::after { display:none; }
+@keyframes journal-ripple { 0% { transform:translate(-50%,-50%) scale(.76); } 100% { transform:translate(-50%,-50%) scale(1.18); } }
+.bottle-stars { --star-count:0; }
+.bottle-stars i { flex:0 0 auto; text-shadow:0 1px 3px #53452699,0 0 4px currentColor; }
+.calendar-day.mood-low { color:#294a73; background:#d8e6f6; }
+.calendar-day.mood-tender { color:#3f642e; background:#e1edcf; }
+.calendar-day.mood-steady { color:#285d58; background:#d1eae4; }
+.calendar-day.mood-good { color:#795415; background:#f8e4ad; }
+.calendar-day.mood-bright { color:#803b22; background:#f7d2b9; }
+.calendar-day.mood-low .day-face { background:#a8c6e8; box-shadow:inset 0 0 0 1px #7198c4; }
+.calendar-day.mood-tender .day-face { background:#c2dc9b; box-shadow:inset 0 0 0 1px #8eaf62; }
+.calendar-day.mood-steady .day-face { background:#9ed1c6; box-shadow:inset 0 0 0 1px #65a99b; }
+.calendar-day.mood-good .day-face { background:#f0cc70; box-shadow:inset 0 0 0 1px #d4a83e; }
+.calendar-day.mood-bright .day-face { background:#f0a477; box-shadow:inset 0 0 0 1px #d77a4f; }
+.calendar-day.has-mood { border-color:transparent; }
+.calendar-day.selected { border-color:transparent; box-shadow:none; }
+.calendar-day:focus-visible { outline:2px solid #8aa883; outline-offset:1px; }
+.review-intensity-control { display:block; margin-top:8px; color:#778174; font:500 8px var(--sans); }
+.review-intensity-slider { display:block; width:min(220px,100%); margin:4px 0 1px; accent-color:#638b83; cursor:pointer; }
+.delete-entry-button { color:#a76358 !important; font-weight:700 !important; }
+.delete-entry-button:hover { color:#8c3f36 !important; }
+.scene-summary { align-items:center; }
+.scene-summary span { display:inline-flex; align-items:center; gap:4px; }
+.summary-fruit-icon { filter:drop-shadow(0 1px 1px #8c493255); }
+.summary-ripple-icon { width:17px; height:13px; fill:none; stroke:#238fc0; stroke-width:1.8; filter:drop-shadow(0 1px 2px #3ca5d84c); }
+.summary-star-icon { color:#eebd2b; font-size:14px; line-height:1; text-shadow:0 1px 0 #9d7315,0 0 5px #f4d6568a; }
+.shoreline::before { inset:0; background:linear-gradient(165deg,transparent 10%,#fff5d51c 50%,transparent 90%); }
+.shoreline::after { display:none; }
+.landscape { background-image:radial-gradient(ellipse at 12% 22%,#fff8df63 0 8%,transparent 44%),radial-gradient(ellipse at 66% 73%,#e7d3a72a 0 8%,transparent 40%),radial-gradient(ellipse at 90% 16%,#bbd1d750 0 3%,transparent 43%),linear-gradient(105deg,#efd596 0%,#e9dbad 22%,#c5c9a6 39%,#8ca29a 55%,#55717a 72%,#293e50 100%); }
+.landscape::before { background:radial-gradient(ellipse at 19% 22%,#fff7d47a 0 1%,transparent 38%),radial-gradient(ellipse at 74% 22%,#d7e1dc60 0 2%,transparent 41%),radial-gradient(ellipse at 53% 78%,#f1dfb546 0 1%,transparent 37%),linear-gradient(180deg,#ffffff0c,#29445012); mix-blend-mode:soft-light; }
+.day-half::after { background:radial-gradient(ellipse at 42% 58%,#edf0c750,transparent 42%),linear-gradient(90deg,#f2d27d27,transparent 73%); }
+.night-half::after { background:radial-gradient(ellipse at 55% 80%,#5faaa046,transparent 45%),linear-gradient(110deg,#768f9418,#142c412c); }
+.tree-canopy { filter:drop-shadow(1px 3px 4px #3e5b423a); background-image:radial-gradient(ellipse at 25% 28%,#eff0bd55 0 8%,transparent 9%),radial-gradient(ellipse at 73% 30%,#d8e89b76 0 10%,transparent 11%),radial-gradient(ellipse at 38% 70%,#405f4940 0 9%,transparent 10%),radial-gradient(ellipse at 78% 68%,#d5e29a46 0 7%,transparent 8%),radial-gradient(ellipse at 50% 49%,#89a46e 0 29%,transparent 31%); }
+.pool-water { background:radial-gradient(ellipse at 52% 38%,#d4f0e252,transparent 58%),repeating-radial-gradient(ellipse at 45% 8%,#d8f6f45c 0 2px,transparent 3px 19px),linear-gradient(180deg,#83bac1,#4f929f 68%,#3e788a); }
+.shoreline { background:linear-gradient(180deg,#dcc595,#e5cd9a 34%,#c9ad79); }
+.shore-bottle { filter:drop-shadow(0 4px 5px #26372a33); }
+.pool-memory { border-color:rgb(82 192 231 / var(--ripple-opacity,.5)); box-shadow:0 0 12px rgb(70 183 224 / var(--ripple-opacity,.5)),inset 0 0 5px rgb(141 226 247 / var(--ripple-opacity,.5)); }
+.pool-memory::before,.pool-memory::after { border-color:rgb(125 218 245 / var(--ripple-opacity,.5)); }
+.pool-memory.memory-settled { border-color:#7fc7dc; box-shadow:0 0 5px #62aeca45; }
+.bottle-stars i { color:#f2c536 !important; text-shadow:0 1px 1px #6f500b,0 0 5px #ffd95a; }
+.fruit { transition:filter .2s; }
+.fruit:hover { z-index:5; animation:fruit-hover .5s ease-in-out infinite alternate !important; filter:drop-shadow(0 4px 3px #75452b70); }
+@keyframes fruit-hover { from { transform:translateY(-2px) rotate(-6deg) scale(1.02); } to { transform:translateY(-11px) rotate(8deg) scale(1.35); } }
+.pool-memory { pointer-events:auto; cursor:pointer; }
+.pool-memory:hover { z-index:8; opacity:1 !important; animation:journal-ripple-hover .72s ease-in-out infinite alternate !important; border-color:#58c8f4; box-shadow:0 0 15px #5bc8f4c9,inset 0 0 7px #a0e8ffe0; }
+.pool-memory:hover::before { inset:8%; }
+.pool-memory:hover::after { inset:-48%; opacity:.95; }
+@keyframes journal-ripple-hover { from { transform:translate(-50%,-50%) scale(1); } to { transform:translate(-50%,-50%) scale(1.8); } }
+@media (prefers-reduced-motion:reduce) {
+  .fruit,.pool-memory { animation:none !important; }
+}
+@media (max-width:720px) {
+  .landscape { background-image:radial-gradient(ellipse at 75% 16%,#fff7d45c,transparent 34%),radial-gradient(ellipse at 35% 78%,#d6ead32b,transparent 42%),linear-gradient(180deg,#efd596 0%,#e9dbad 23%,#c5c9a6 42%,#8ca29a 52%,#55717a 72%,#293e50 100%); }
+}
+.land-stat { position:absolute; z-index:8; bottom:10px; display:grid; gap:2px; max-width:calc(100% - 30px); font-family:var(--sans); pointer-events:none; }
+.land-stat strong { font-size:10px; line-height:1.2; font-weight:700; }
+.land-stat small { font-size:8px; line-height:1.3; opacity:.82; }
+.tree-stat { left:18px; color:#526443; }
+.night-stat { right:18px; text-align:right; color:#f1eee0; }
+.tree-art:focus-visible,.pool-art:focus-visible { outline:2px solid #fff1b8; outline-offset:2px; border-radius:12px; }
+.fruit { appearance:none; border:0; padding:0; cursor:pointer; }
+.fruit:focus-visible,.bottle-star:focus-visible { outline:2px solid #fff8cd; outline-offset:3px; }
+.pool-art { width:259px; height:170px; }
+.pool-water { left:50%; width:var(--pool-width,42px); height:var(--pool-height,14px); transform:translateX(calc(-50% + var(--pool-shift,0px))); transform-origin:center; border-radius:50%; transition:width .6s ease,height .6s ease,transform .6s ease; }
+.pool-mementos { position:absolute; z-index:5; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.pool-memory { position:static !important; display:inline !important; width:auto !important; height:auto !important; margin:0 !important; border:0 !important; border-radius:0 !important; box-shadow:none !important; transform:none !important; animation:none !important; pointer-events:auto; cursor:pointer; outline:none; }
+.pool-memory::before,.pool-memory::after { content:none !important; display:none !important; }
+.pool-memory:hover { z-index:auto; opacity:1 !important; border:0 !important; box-shadow:none !important; transform:none !important; animation:none !important; }
+.pool-memory circle { fill:none; stroke:#5ac3e5; stroke-width:2; vector-effect:non-scaling-stroke; transform-box:fill-box; transform-origin:center; animation:pool-ring-breathe 3.8s ease-in-out infinite alternate; transition:stroke .2s,stroke-width .2s,filter .2s; }
+.pool-memory:hover circle,.pool-memory:focus-visible circle { stroke:#b0edff; stroke-width:3.3; filter:drop-shadow(0 0 5px #62d8ff); animation:pool-ring-hover .75s ease-in-out infinite alternate; }
+.pool-memory.memory-settled circle { stroke-opacity:.2; }
+@keyframes pool-ring-breathe { from { transform:scale(.96); } to { transform:scale(1.045); } }
+@keyframes pool-ring-hover { from { transform:scale(1); } to { transform:scale(1.16); } }
+.bottle-stars { position:absolute; z-index:10; left:calc(50% - 25px); bottom:10px; width:50px; height:61px; inset:auto auto 10px calc(50% - 25px); display:flex; flex-wrap:wrap; justify-content:center; align-content:center; gap:4px; font-size:12px; line-height:1; pointer-events:none; }
+.bottle-star { flex:0 0 auto; position:relative; z-index:1; padding:1px; border:0; background:transparent; color:#f2c536; text-shadow:0 1px 1px #6f500b,0 0 5px #ffd95a; cursor:pointer; pointer-events:auto; transition:transform .18s,filter .18s; }
+.bottle-star:hover { transform:translateY(-3px) scale(1.35); filter:drop-shadow(0 0 4px #ffe58a); }
+.scene-entry-selected { outline:2px solid #9fb88a; box-shadow:0 0 0 4px #dce8d2; transition:box-shadow .3s; }
+@media (max-width:720px) {
+  .pool-art { width:247px; height:170px; }
+  .tree-stat { left:11px; bottom:9px; }
+  .night-stat { right:11px; bottom:9px; }
+  .land-stat strong { font-size:9px; }
+  .land-stat small { font-size:7px; }
+}
+@media (max-width:410px) {
+  .pool-art { width:218px; height:170px; }
+  .tree-stat { left:8px; }
+  .night-stat { right:8px; }
+  .land-stat { max-width:45%; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .pool-water,.pool-memory circle,.fruit,.bottle-star { animation:none !important; transition:none !important; }
+}
+/* Full-bleed painted landscape: the generated coastline replaces the former geometric scene. */
+.main-content { width:100%; max-width:none; padding:18px 26px 28px; }
+.landscape { width:calc(100% + 52px); height:min(72vh,780px); min-height:500px; margin-left:-26px; border-radius:0; background-image:linear-gradient(90deg,#f5e0ad22 0%,#d6ddc51a 44%,#172f3a35 100%),url('assets/daylight-coast-v2.png'); background-size:100% 100%; background-position:center; box-shadow:0 14px 42px #25332c25; }
+.land-half { height:100%; background:transparent !important; }
+.landscape::before { z-index:1; opacity:.36; background:radial-gradient(ellipse at 18% 25%,#fff9d330,transparent 37%),radial-gradient(ellipse at 78% 72%,#bdded12b,transparent 35%),repeating-linear-gradient(112deg,#fff7e208 0 1px,transparent 1px 5px); mix-blend-mode:soft-light; animation:paint-light-breathe 11s ease-in-out infinite alternate; }
+.landscape::after { z-index:2; inset:0; left:0; bottom:auto; width:auto; height:auto; clip-path:none; background:linear-gradient(180deg,#27364113 0%,transparent 38%,#152a3221 100%); pointer-events:none; }
+.day-half::after { z-index:1; inset:0; background:radial-gradient(ellipse at 29% 20%,#fff1bc24,transparent 37%); animation:paint-light-breathe 13s ease-in-out infinite alternate; }
+.night-half::after { z-index:1; inset:0; background:radial-gradient(ellipse at 60% 70%,#8bcac425,transparent 36%); animation:paint-water-light 9s ease-in-out infinite alternate; }
+.sun-disc,.moon-disc,.tree-canopy,.tree-trunk,.tree-branch,.tree-ground,.pool-rock,.pool-plant,.pool-water,.shoreline { display:none !important; }
+.tree-art { z-index:4; left:4%; right:auto; bottom:9%; width:82%; height:64%; transform:none !important; cursor:pointer; }
+.tree-art .tree-fruits { z-index:2; }
+.tree-art::before { content:""; position:absolute; z-index:1; left:7%; top:1%; width:57%; height:48%; border-radius:50%; background:radial-gradient(ellipse at 44% 43%,#fff0c51b,transparent 72%); filter:blur(5px); pointer-events:none; animation:foliage-glimmer 8s ease-in-out infinite alternate; }
+.fruit { width:14px; height:16px; box-shadow:inset -2px -3px 3px #72332e54,0 2px 5px #25352b72,0 0 0 1px #f8e6be66; }
+.pool-art { z-index:4; left:37%; right:auto; top:70%; bottom:auto; width:82%; height:54%; transform:translate(-50%,-50%); border:0; outline:0; border-radius:50%; }
+.pool-art::before,.pool-art::after { content:""; position:absolute; z-index:0; inset:4% 2%; border-radius:48% 52% 46% 54% / 52% 44% 56% 48%; pointer-events:none; }
+.pool-art::before { background:radial-gradient(ellipse at 44% 38%,#a7d9d345 0%,#5e9da144 43%,#315d6b12 72%,transparent 79%); box-shadow:inset 0 0 22px #bbecdf22; transform:scale(var(--pool-growth,1)); animation:tide-wash 8s ease-in-out infinite alternate; transition:transform 1s ease; }
+.pool-art::after { inset:7% 4%; border:1px solid #b9e4d324; box-shadow:0 0 24px #a7d5d11e; animation:tide-glint 6.5s ease-in-out infinite alternate; }
+.pool-mementos { z-index:2; overflow:visible; }
+.pool-memory circle { stroke:#9ed9e2; stroke-width:1.5; stroke-opacity:.63; filter:drop-shadow(0 1px 3px #a8e3e64c); animation:pool-ring-breathe 5.5s ease-in-out infinite alternate; }
+.pool-memory:nth-child(odd) circle { animation-duration:7.3s; }
+.pool-memory.memory-settled circle { stroke:#b8d9d5; stroke-opacity:.22; }
+.pool-memory:hover circle,.pool-memory:focus-visible circle { stroke:#d4f2ec; stroke-width:2.5; stroke-opacity:.95; filter:drop-shadow(0 0 7px #d8fff2a8); }
+.land-copy { z-index:5; top:clamp(22px,5vh,58px); left:clamp(20px,4vw,58px); max-width:40%; text-shadow:0 2px 16px #f3e3c347; }
+.land-copy h2 { font-size:clamp(25px,3vw,39px) !important; text-shadow:0 2px 13px #fff0c66e; }
+.land-copy p { font-size:clamp(9px,.85vw,12px); }
+.night-half .land-copy { left:clamp(20px,3vw,48px); color:#f5f0e5; text-shadow:0 2px 15px #20343a8a; }
+.land-stat { z-index:6; bottom:clamp(14px,3vh,30px); padding:8px 11px; border-radius:12px; background:#1a30352b; backdrop-filter:blur(5px); text-shadow:0 1px 8px #26362f90; }
+.tree-stat { left:clamp(16px,3vw,38px); color:#fff6dc; }
+.night-stat { right:clamp(16px,3vw,38px); color:#f2f5e9; }
+.shore-bottle { z-index:8; bottom:clamp(12px,3vh,28px); filter:drop-shadow(0 5px 10px #1b292a88); }
+.bottle-stars { bottom:calc(clamp(12px,3vh,28px) + 10px); }
+.scene-entry-selected { scroll-margin-top:28px; }
+@keyframes paint-light-breathe { from { opacity:.19; } to { opacity:.43; } }
+@keyframes foliage-glimmer { from { transform:rotate(-.5deg) scale(.99); opacity:.52; } to { transform:rotate(.45deg) scale(1.015); opacity:.9; } }
+@keyframes paint-water-light { from { opacity:.35; transform:translateX(-.5%) scale(1); } to { opacity:.72; transform:translateX(.6%) scale(1.015); } }
+@keyframes tide-wash { from { transform:translateX(-2%) scale(var(--pool-growth,1)); opacity:.52; } to { transform:translateX(2%) scale(calc(var(--pool-growth,1) * 1.025)); opacity:.85; } }
+@keyframes tide-glint { from { transform:translateY(2px) scale(.99); opacity:.26; } to { transform:translateY(-2px) scale(1.01); opacity:.7; } }
+@media (max-width:720px) {
+  .main-content { padding:12px 0 22px; }
+  .topbar { margin-inline:14px; }
+  .landscape { display:block; width:100%; height:min(60vh,520px); min-height:370px; margin:0; background-size:100% 100%; }
+  .land-half { position:absolute; top:0; bottom:0; width:50%; height:100%; }
+  .day-half { left:0; right:auto; }
+  .night-half { left:50%; right:auto; top:0; bottom:0; }
+  .land-copy { top:16px !important; left:9px !important; width:calc(100% - 18px); max-width:none; }
+  .night-half .land-copy { left:9px !important; }
+  .day-half .land-copy,.night-half .land-copy { width:calc(100% - 18px) !important; max-width:none !important; }
+  .day-half .land-copy { isolation:isolate; padding:7px 9px; }
+  .day-half .land-copy::before { content:""; position:absolute; z-index:-1; inset:-15px -24px -18px -13px; border-radius:50%; background:radial-gradient(ellipse at 34% 34%,#f7e7c9e8 0%,#f7e7c99c 51%,#f7e7c900 100%); filter:blur(4px); pointer-events:none; }
+  .land-copy h2 { margin:6px 0 4px; font-size:clamp(17px,4.4vw,21px) !important; line-height:1.12 !important; }
+  .land-copy p { max-width:100%; font-size:7px; line-height:1.4; }
+  .tree-art { left:0; bottom:11%; width:100%; height:58%; transform:none !important; }
+  .pool-art { left:39%; top:68%; width:92%; height:37%; transform:translate(-50%,-50%); }
+  .land-stat { bottom:10px; max-width:45%; padding:6px 7px; }
+  .tree-stat { left:7px; }
+  .night-stat { right:7px; }
+  .shore-bottle { bottom:9px; transform:translateX(-50%) rotate(-8deg) scale(.78); }
+  .bottle-stars { bottom:18px; transform:scale(.82); transform-origin:bottom center; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landscape::before,.day-half::after,.night-half::after,.pool-art::before,.pool-art::after { animation:none !important; }
+}
+.land-copy h2 { margin:8px 0 3px; font-size:22px !important; line-height:1.12 !important; letter-spacing:-.25px; }
+.land-copy p { max-width:218px; font-size:9px; line-height:1.5; }
+@media (max-width:720px) {
+  .day-half .land-copy { top:16px; width:min(245px,62%); }
+  .night-half .land-copy { top:72px; width:min(245px,62%); }
+  .land-copy h2 { font-size:19px !important; line-height:1.15 !important; }
+  .land-copy p { font-size:8px; }
+}
+@media (max-width:410px) {
+  .day-half .land-copy { width:61%; }
+  .night-half .land-copy { width:61%; }
+  .land-copy h2 { font-size:18px !important; }
+}
+/* Pastel gouache finish — retain the existing journal layout and interaction model. */
+:root { --ink:#554a46; --muted:#8a7c77; --paper:#fff9ef; --white:#fffaf2; --line:#efdfce; --green:#849c6a; --green-deep:#6b8358; }
+body { background:#fff8ed; color:#594b47; }
+.main-content { width:min(100%,1080px); max-width:1080px; margin:0 auto; padding:30px 48px 22px; }
+.landscape { display:block; width:100%; height:390px; min-height:276px; margin:0; border-radius:18px; background-image:linear-gradient(90deg,#fff0c80b 0%,#ffe4e70b 50%,#a9b9f514 100%),url('assets/daylight-coast-v4.png'); background-size:cover; background-position:center 52%; box-shadow:0 12px 30px #a8755723; }
+.land-half { height:100%; background:transparent !important; }
+.landscape::before { z-index:1; opacity:.34; background:radial-gradient(ellipse at 15% 25%,#fff9d94a,transparent 38%),radial-gradient(ellipse at 76% 75%,#d6f3ee38,transparent 37%),repeating-linear-gradient(112deg,#fff7e20a 0 1px,transparent 1px 5px); mix-blend-mode:soft-light; animation:paint-light-breathe 11s ease-in-out infinite alternate; }
+.landscape::after { z-index:9; inset:0; left:0; bottom:auto; width:auto; height:auto; clip-path:none; background:linear-gradient(180deg,#fff6e708 0%,transparent 62%,#fff2d529 100%); pointer-events:none; }
+.day-half::after { z-index:1; inset:0; background:radial-gradient(ellipse at 24% 18%,#fff8d250,transparent 42%); animation:paint-light-breathe 13s ease-in-out infinite alternate; }
+.night-half::after { z-index:1; inset:0; background:radial-gradient(ellipse at 60% 68%,#dccfff4d,transparent 44%); animation:paint-water-light 9s ease-in-out infinite alternate; }
+.sun-disc,.moon-disc,.tree-canopy,.tree-trunk,.tree-branch,.tree-ground,.pool-rock,.pool-plant,.pool-water { display:none !important; }
+.shoreline { display:block !important; z-index:9; left:-1%; bottom:0; width:102%; height:75px; clip-path:polygon(0 42%,10% 34%,22% 45%,34% 56%,47% 52%,59% 39%,72% 36%,84% 48%,100% 40%,100% 100%,0 100%); background:linear-gradient(180deg,#f0d4a4dc,#f7dfaedb 44%,#f4d8a5ed); opacity:.86; }
+.shoreline::before { inset:12px 0 0; background:repeating-linear-gradient(168deg,transparent 0 23px,#fff8df24 24px 26px,transparent 27px 48px); }
+.tree-art { z-index:4; left:4%; right:auto; top:0; bottom:0; width:82%; height:auto; transform:none !important; cursor:pointer; }
+.tree-art .tree-fruits { z-index:2; }
+.tree-art::before { content:""; position:absolute; z-index:1; left:5%; top:3%; width:72%; height:51%; border-radius:50%; background:radial-gradient(ellipse at 28% 32%,#fff7bd32 0 7%,transparent 9%),radial-gradient(ellipse at 60% 55%,#a3c26a24 0 11%,transparent 13%),radial-gradient(ellipse at 78% 22%,#fff0a333 0 6%,transparent 8%); filter:blur(2px); mix-blend-mode:soft-light; pointer-events:none; animation:foliage-glimmer 8s ease-in-out infinite alternate; }
+.fruit { width:14px; height:16px; border:0; border-radius:48% 48% 52% 52%; box-shadow:inset -2px -3px 3px #9f46334b,0 2px 4px #78574245,0 0 0 1px #fff1c869; animation:fruit-sway 6s ease-in-out infinite alternate !important; animation-delay:var(--fruit-delay,0s) !important; }
+.fruit:hover,.fruit:focus-visible { z-index:6; animation:fruit-hover .7s ease-in-out infinite alternate !important; filter:drop-shadow(0 2px 4px #ba705075); }
+@keyframes fruit-sway { from { transform:translateY(0) rotate(-1.2deg); } to { transform:translateY(-1px) rotate(1.2deg); } }
+@keyframes fruit-hover { from { transform:translateY(-1px) rotate(-2deg) scale(1.07); } to { transform:translateY(-2px) rotate(2deg) scale(1.16); } }
+.pool-art { z-index:4; left:37%; right:auto; top:70%; bottom:auto; width:82%; height:54%; transform:translate(-50%,-50%); border:0; outline:0; border-radius:50%; isolation:isolate; }
+.pool-art::before,.pool-art::after { content:""; position:absolute; z-index:0; inset:4% 2%; border-radius:48% 52% 46% 54% / 52% 44% 56% 48%; pointer-events:none; }
+.pool-art::before { background:radial-gradient(ellipse at 44% 38%,#fff5da30 0%,#a7e5dc32 37%,#b8a9ed24 66%,transparent 80%); transform:scale(var(--pool-growth,1)); animation:tide-wash 8s ease-in-out infinite alternate; transition:transform 1s ease; }
+.pool-art::after { inset:18% 11%; background:radial-gradient(ellipse at 42% 50%,#fff8dd40,transparent 70%); filter:blur(7px); animation:tide-glint 6.5s ease-in-out infinite alternate; }
+.pool-mementos { z-index:2; overflow:visible; }
+.pool-memory { pointer-events:auto; cursor:pointer; outline:none; }
+.pool-memory path { fill:none; stroke:#f7f4ff; stroke-width:1.6; stroke-opacity:.78; stroke-linecap:round; vector-effect:non-scaling-stroke; transform-box:fill-box; transform-origin:center; filter:drop-shadow(0 1px 2px #818abd59); animation:pool-ring-breathe 6s ease-in-out infinite alternate; transition:stroke .25s,stroke-width .25s,filter .25s; }
+.pool-memory:nth-child(odd) path { animation-duration:7.5s; }
+.pool-memory.memory-settled path { stroke:#e3d9f0; stroke-opacity:.4; }
+.pool-memory:hover path,.pool-memory:focus-visible path { stroke:#fff7df; stroke-width:2.5; stroke-opacity:.98; filter:drop-shadow(0 1px 4px #a48ab36b); }
+.land-copy { z-index:5; top:clamp(22px,5vh,58px); left:clamp(20px,4vw,58px); max-width:40%; isolation:isolate; text-shadow:0 1px 9px #fff0c66e; }
+.land-copy::before { content:""; position:absolute; z-index:-1; inset:-13px -26px -16px -13px; border-radius:48%; background:radial-gradient(ellipse at 34% 34%,#fff4d9d9 0%,#fff0d9a6 49%,#fff0d900 100%); filter:blur(6px); pointer-events:none; }
+.land-label { color:#a26c58; }
+.land-copy h2 { color:#635340 !important; text-shadow:0 1px 7px #fff4d8a8; }
+.land-copy p { color:#78665b !important; }
+.night-half .land-copy { left:clamp(20px,3vw,48px); text-shadow:0 1px 9px #ece5ffa8; }
+.night-half .land-copy::before { background:radial-gradient(ellipse at 42% 36%,#f1eaffdc 0%,#dedbff9c 50%,#dedbff00 100%); }
+.night-half .land-label { color:#736b9a; }
+.night-half .land-copy h2 { color:#5d587f !important; text-shadow:0 1px 7px #f0eaffbf; }
+.night-half .land-copy p { color:#655f84 !important; }
+.land-stat { z-index:11; bottom:clamp(14px,3vh,30px); padding:7px 11px; border-radius:14px 12px 15px 11px; background:#fff3d9d9; color:#79634c; box-shadow:0 3px 9px #a46b4530; text-shadow:none; backdrop-filter:none; }
+.tree-stat { left:clamp(16px,3vw,38px); color:#775b42; }
+.night-stat { right:clamp(16px,3vw,38px); color:#625d7d; background:#f4edffdc; }
+.land-stat strong { font-size:10px; }
+.land-stat small { font-size:8px; }
+.shore-bottle { z-index:10; bottom:clamp(10px,2.5vh,22px); filter:drop-shadow(0 3px 6px #96735b57); }
+.bottle-glass { border-color:#fff9e5c9; background:linear-gradient(110deg,#fff9e9ad,#eadcff80 48%,#fff4d88f); box-shadow:inset 5px 0 8px #fffef080,inset -5px 0 8px #9582ba30,0 4px 9px #826b6340; }
+.bottle-note { color:#826c82; }
+.bottle-stars { z-index:11; bottom:calc(clamp(10px,2.5vh,22px) + 10px); }
+.bottle-star { text-shadow:0 1px 2px #936f3f77,0 0 5px #fff1b4b8; }
+.story-tooltip { position:absolute; z-index:30; max-width:min(230px,calc(100% - 18px)); transform:translate(-50%,-100%); padding:8px 11px; border:1px solid #fff8e9; border-radius:13px 11px 14px 10px; color:#675652; background:linear-gradient(145deg,#fff9edee,#f7e9d8e8); box-shadow:0 4px 12px #775d4430; font:600 10px/1.4 var(--sans); text-align:center; opacity:0; pointer-events:none; transition:opacity .18s ease; }
+.story-tooltip.visible { opacity:1; }
+.scene-entry-selected { outline:2px solid #efb8ac; box-shadow:0 0 0 4px #f8e3d2; }
+.mood-choice,.ritual-card,.review-entry,.conversation-panel,.composer,.calendar-section,.settings-section,.unlock-card { border-color:#f0dfcb; background-color:#fff9ef; background-image:radial-gradient(ellipse at 12% 9%,#fffdf768 0 1%,transparent 30%),linear-gradient(145deg,#fffaf2,#fff5e8); box-shadow:0 5px 14px #ad82621b; }
+.mood-choice { border-radius:15px 13px 17px 12px; }
+.mood-choice:hover,.mood-choice.selected { border-color:#eecaa7; background:#fff0dc; box-shadow:0 4px 12px #dcaa8025; }
+.ritual-card { border-radius:15px 12px 17px 13px; }
+.calendar-section { border:1px solid #f0dfcb; border-radius:17px; }
+.calendar-toolbar button,.view-switch button,.past-entry-actions button,.entry-controls button,.today-button,.composer-actions button,.settings-save,.calendar-today { border-color:#ead8c4; color:#79645c; background:#fff7e9; }
+.calendar-toolbar button:hover,.view-switch button:hover,.past-entry-actions button:hover,.today-button:hover { background:#fce9d6; }
+.view-switch button.selected { color:#75594d; background:#f5dfc9; }
+.calendar-day { border:0 !important; outline:0; border-radius:12px 10px 13px 11px; }
+.calendar-day.mood-low .day-face { background:#c9dfff; box-shadow:inset 0 0 0 1px #91b7e7; }
+.calendar-day.mood-tender .day-face { background:#d7efbd; box-shadow:inset 0 0 0 1px #a9cf7e; }
+.calendar-day.mood-steady .day-face { background:#bdeee5; box-shadow:inset 0 0 0 1px #7dcbb8; }
+.calendar-day.mood-good .day-face { background:#ffe0a0; box-shadow:inset 0 0 0 1px #efbd60; }
+.calendar-day.mood-bright .day-face { background:#ffc1a7; box-shadow:inset 0 0 0 1px #eb9270; }
+.review-entry { border:1px solid #f0e1d1; border-radius:13px 11px 15px 12px; }
+.conversation-messages,.conversation-panel .assistant-message { background:#fdf1e3; border-radius:14px 12px 15px 11px; }
+.field-group input,.field-group textarea,.field-group select,.followup-form textarea,.preference-field input,.preference-field textarea { border-color:#ead9c6; background:#fffaf2; color:#584c47; }
+.field-group input:focus,.field-group textarea:focus,.field-group select:focus,.followup-form textarea:focus { border-color:#e9b796; box-shadow:0 0 0 3px #f8e6d4; outline:0; }
+.save-entry,.settings-save,.unlock-card button { border:1px solid #eac5a3; border-radius:17px 14px 18px 13px; color:#715445; background:linear-gradient(135deg,#ffe6bd,#f8cdbb); box-shadow:0 3px 8px #c68e6c35; }
+.save-entry:hover,.settings-save:hover { background:linear-gradient(135deg,#ffdeaa,#f4bdaa); }
+.delete-entry-button { color:#bc7369 !important; }
+.fruit:focus-visible,.bottle-star:focus-visible,.pool-art:focus-visible { outline:2px solid #ffedbb; outline-offset:3px; }
+@keyframes pool-ring-breathe { from { transform:scale(.99); } to { transform:scale(1.035); } }
+@media (max-width:720px) {
+  .main-content { width:auto; max-width:none; margin:0; padding:22px 16px; }
+  .landscape { display:block; width:100%; height:650px; min-height:650px; margin:0; border-radius:17px; background-image:linear-gradient(180deg,#fff0c80d 0%,#f6dcea0b 49%,#b1cbfa10 100%),url('assets/daylight-coast-mobile-v5.png'); background-size:cover; background-position:center; }
+  .land-half { position:absolute; left:0; right:auto; width:100%; height:50%; }
+  .day-half { top:0; bottom:auto; }
+  .night-half { left:0; right:auto; top:50%; bottom:auto; }
+  .land-copy { top:20px !important; left:16px !important; width:min(245px,62%); max-width:none; }
+  .night-half .land-copy { top:8px !important; left:16px !important; }
+  .day-half .land-copy::before { inset:-11px -18px -16px -12px; }
+  .night-half .land-copy::before { inset:-13px -17px -15px -12px; }
+  .land-copy h2 { font-size:22px !important; }
+  .land-copy p { max-width:190px; font-size:8px; }
+  .tree-art { left:4%; right:auto; top:0; bottom:auto; width:82%; height:100%; }
+  .pool-art { left:60%; right:auto; top:65%; bottom:auto; width:82%; height:70%; transform:translate(-50%,-50%); }
+  .tree-stat { left:12px; bottom:11px; }
+  .night-stat { right:12px; bottom:11px; }
+  .shore-bottle { left:50%; bottom:47%; transform:translateX(-50%) rotate(-8deg) scale(.82); }
+  .bottle-stars { left:calc(50% - 25px); bottom:calc(47% + 10px); transform:scale(.85); transform-origin:bottom center; }
+  .land-stat { max-width:44%; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landscape::before,.day-half::after,.night-half::after,.pool-art::before,.pool-art::after,.tree-art::before,.fruit,.pool-memory path { animation:none !important; transition:none !important; }
+}
+
+/* Fresh storybook coast: the shared painting stays continuous behind both interactive halves. */
+:root { --ink:#544b4a; --muted:#887b7d; --paper:#fff8ee; --white:#fffaf3; --line:#efdfcf; --green:#819967; --green-deep:#697f59; }
+body { background:#fff8ef; color:#544b4a; }
+.landscape {
+  position:relative; display:block; isolation:isolate; overflow:hidden;
+  background-image:linear-gradient(100deg,#fff1c20a 0%,#fff0e60b 48%,#cfc7ff12 100%),url('assets/storybook-coast-wide.png');
+  background-size:cover; background-position:center 18%;
+  border-radius:18px; box-shadow:0 12px 30px #a8755723;
+}
+.land-half { position:absolute; top:0; width:50%; height:100%; overflow:visible; background:transparent !important; }
+.day-half { left:0; right:auto; color:#514f42; }
+.night-half { left:50%; right:auto; color:#504e70; }
+.landscape::before { z-index:1; opacity:.28; background:radial-gradient(ellipse at 23% 22%,#fff8d65c,transparent 43%),radial-gradient(ellipse at 75% 70%,#c2e8ed30,transparent 38%),repeating-linear-gradient(110deg,#fff7e509 0 1px,transparent 1px 5px); mix-blend-mode:soft-light; animation:paint-light-breathe 12s ease-in-out infinite alternate; pointer-events:none; }
+.landscape::after { z-index:9; inset:0; left:0; bottom:auto; width:auto; height:auto; clip-path:none; background:linear-gradient(180deg,#fff1d308 0%,transparent 64%,#fff0d21c 100%); pointer-events:none; }
+.day-half::after,.night-half::after { z-index:1; inset:0; pointer-events:none; }
+.day-half::after { background:radial-gradient(ellipse at 25% 18%,#fff6cc36,transparent 42%); animation:paint-light-breathe 14s ease-in-out infinite alternate; }
+.night-half::after { background:radial-gradient(ellipse at 72% 56%,#dcd3ff33,transparent 48%); animation:paint-water-light 12s ease-in-out infinite alternate; }
+.sun-disc,.moon-disc,.tree-canopy,.tree-trunk,.tree-branch,.tree-ground,.pool-rock,.pool-plant,.pool-water,.shoreline,.land-divider { display:none !important; }
+
+.tree-art { z-index:4; left:0; right:auto; top:0; bottom:auto; width:82%; height:100%; transform:none !important; cursor:pointer; }
+.tree-art::before { content:""; position:absolute; z-index:1; left:0; top:0; width:78%; height:59%; border-radius:45% 55% 53% 47%; background:radial-gradient(ellipse at 20% 24%,#fff6b830 0 6%,transparent 18%),radial-gradient(ellipse at 46% 40%,#f5e7ad24 0 10%,transparent 24%),radial-gradient(ellipse at 70% 23%,#ffffd126 0 7%,transparent 18%); mix-blend-mode:soft-light; filter:blur(2px); pointer-events:none; animation:foliage-glimmer 9s ease-in-out infinite alternate; }
+.tree-fruits { position:absolute; inset:0; z-index:3; }
+.fruit { width:14px; height:16px; border:0; border-radius:48% 48% 52% 52%; box-shadow:inset -2px -3px 3px #98443845,0 2px 4px #66533a45,0 0 0 1px #fff6d99c; transform-origin:50% 12%; animation:fruit-sway 6.7s ease-in-out infinite alternate !important; animation-delay:var(--fruit-delay,0s) !important; }
+.fruit::after { width:5px; height:4px; background:#66804e; }
+.fruit:hover,.fruit:focus-visible { z-index:6; animation:fruit-hover .7s ease-in-out infinite alternate !important; filter:drop-shadow(0 2px 5px #b96d6480); }
+
+/* The interactive circles sit inside a soft wash over the painted sea, not on a UI disc. */
+.pool-art { z-index:4; left:50%; right:auto; top:54%; bottom:auto; width:82%; height:65%; transform:translate(-50%,-50%); border:0; outline:0; border-radius:50%; isolation:isolate; overflow:visible; }
+.pool-art::before,.pool-art::after { content:""; position:absolute; z-index:0; inset:7% 6%; border-radius:47% 53% 52% 48% / 49% 43% 57% 51%; pointer-events:none; }
+.pool-art::before { background:radial-gradient(ellipse at 47% 44%,#fff8df25 0%,#a6e6e433 42%,#b9b1f32a 70%,transparent 82%); transform:scale(var(--pool-growth,1)); animation:tide-wash 10s ease-in-out infinite alternate; transition:transform 1s ease; }
+.pool-art::after { inset:19% 12%; background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 15px,#edfbf67d 16px 17px,transparent 18px 29px); mask-image:radial-gradient(ellipse,#000 16%,transparent 75%); opacity:.34; filter:blur(.4px); animation:tide-glint 8s ease-in-out infinite alternate; }
+.pool-mementos { z-index:2; overflow:visible; pointer-events:none; }
+.pool-memory { pointer-events:auto; cursor:pointer; outline:none; }
+.pool-memory-hit { fill:none; stroke:transparent; stroke-width:15; pointer-events:stroke; }
+.pool-memory-line { fill:none; stroke:#f8fffa; stroke-width:1.7; stroke-opacity:.78; stroke-linecap:round; vector-effect:non-scaling-stroke; filter:drop-shadow(0 1px 3px #739db58a); animation:pool-ring-breathe 7s ease-in-out infinite alternate; transition:stroke .25s,stroke-width .25s,filter .25s; pointer-events:none; }
+.pool-memory:nth-child(odd) .pool-memory-line { animation-duration:8.5s; }
+.pool-memory.memory-settled .pool-memory-line { stroke:#e7e4f6; stroke-opacity:.35; }
+.pool-memory:hover .pool-memory-line,.pool-memory:focus-visible .pool-memory-line { stroke:#fff5d5; stroke-width:2.8; stroke-opacity:1; filter:drop-shadow(0 1px 5px #c8c2f4a8); }
+
+.land-copy { z-index:5; top:clamp(22px,5vh,58px); left:clamp(20px,4vw,58px); max-width:40%; isolation:isolate; text-shadow:0 1px 8px #fff4d7a6; }
+.land-copy::before { content:""; position:absolute; z-index:-1; inset:-14px -25px -15px -12px; border-radius:48%; background:radial-gradient(ellipse at 35% 35%,#fff4ddcf 0%,#fff1df8c 52%,#fff1df00 100%); filter:blur(5px); pointer-events:none; }
+.land-label { color:#a26d59; }
+.land-copy h2 { color:#554f42 !important; text-shadow:0 1px 7px #fff4d8c7; }
+.land-copy p { color:#6d625a !important; }
+.night-half .land-copy { left:clamp(20px,3vw,48px); text-shadow:0 1px 8px #eee9ffd1; }
+.night-half .land-copy::before { background:radial-gradient(ellipse at 40% 36%,#f2edffdc 0%,#ebe5ffab 51%,#ebe5ff00 100%); }
+.night-half .land-label { color:#716994; }
+.night-half .land-copy h2 { color:#514d71 !important; text-shadow:0 1px 7px #f2edffdc; }
+.night-half .land-copy p { color:#625d80 !important; }
+.land-stat { z-index:11; bottom:clamp(14px,3vh,30px); padding:7px 11px; border-radius:14px 12px 15px 11px; background:#fff4d9df; color:#765f4e; box-shadow:0 3px 9px #a46b4530; text-shadow:none; backdrop-filter:none; }
+.tree-stat { left:clamp(16px,3vw,38px); color:#70573f; }
+.night-stat { right:clamp(16px,3vw,38px); color:#575477; background:#f0eaffdf; }
+.land-stat strong { font-size:10px; }
+.land-stat small { font-size:8px; }
+.shore-bottle { z-index:10; left:42%; bottom:8%; transform:translateX(-50%) rotate(-11deg) scale(.84); filter:drop-shadow(0 3px 6px #92785e63); }
+.bottle-glass { border-color:#fff9e5d9; background:linear-gradient(110deg,#fff9e9bd,#ddd8ff9a 48%,#fff4d8a3); box-shadow:inset 5px 0 8px #fffef080,inset -5px 0 8px #9582ba2b,0 4px 9px #826b6340; }
+.bottle-note { color:#796579; }
+.bottle-stars { z-index:11; left:calc(42% - 25px); bottom:calc(8% + 12px); }
+.bottle-star { text-shadow:0 1px 2px #89653180,0 0 6px #fff1b9c9; }
+.story-tooltip { border:1px solid #fff8e9; border-radius:13px 11px 14px 10px; color:#675652; background:linear-gradient(145deg,#fff9edee,#f7e9d8ed); box-shadow:0 4px 12px #775d4430; }
+.shoreline { display:none !important; }
+.scene-entry-selected { outline:2px solid #efb8ac; box-shadow:0 0 0 4px #f8e3d2; }
+@keyframes fruit-sway { from { transform:translateY(0) rotate(-1deg); } to { transform:translateY(-1px) rotate(1deg); } }
+@keyframes fruit-hover { from { transform:translateY(-1px) rotate(-2deg) scale(1.07); } to { transform:translateY(-2px) rotate(2deg) scale(1.16); } }
+
+.mood-choice,.ritual-card,.review-entry,.conversation-panel,.composer,.calendar-section,.settings-section,.unlock-card { border-color:#f0dfcb; background-color:#fff9ef; background-image:radial-gradient(ellipse at 12% 9%,#fffdf768 0 1%,transparent 30%),linear-gradient(145deg,#fffaf2,#fff5e8); box-shadow:0 5px 14px #ad82621b; }
+.mood-choice { border-radius:15px 13px 17px 12px; }
+.mood-choice:hover,.mood-choice.selected { border-color:#eecaa7; background:#fff0dc; box-shadow:0 4px 12px #dcaa8025; }
+.ritual-card,.review-entry { border-radius:15px 12px 17px 13px; }
+.calendar-section { border:1px solid #f0dfcb; border-radius:17px; }
+.calendar-toolbar button,.view-switch button,.past-entry-actions button,.entry-controls button,.today-button,.composer-actions button,.settings-save,.calendar-today { border-color:#ead8c4; color:#79645c; background:#fff7e9; }
+.calendar-toolbar button:hover,.view-switch button:hover,.past-entry-actions button:hover,.today-button:hover { background:#fce9d6; }
+.view-switch button.selected { color:#75594d; background:#f5dfc9; }
+.calendar-day { border:0 !important; outline:0; border-radius:12px 10px 13px 11px; }
+.calendar-day.mood-low .day-face { background:#c9dfff; box-shadow:inset 0 0 0 1px #91b7e7; }
+.calendar-day.mood-tender .day-face { background:#d7efbd; box-shadow:inset 0 0 0 1px #a9cf7e; }
+.calendar-day.mood-steady .day-face { background:#bdeee5; box-shadow:inset 0 0 0 1px #7dcbb8; }
+.calendar-day.mood-good .day-face { background:#ffe0a0; box-shadow:inset 0 0 0 1px #efbd60; }
+.calendar-day.mood-bright .day-face { background:#ffc1a7; box-shadow:inset 0 0 0 1px #eb9270; }
+.field-group input,.field-group textarea,.field-group select,.followup-form textarea,.preference-field input,.preference-field textarea { border-color:#ead9c6; background:#fffaf2; color:#584c47; }
+.field-group input:focus,.field-group textarea:focus,.field-group select:focus,.followup-form textarea:focus { border-color:#e9b796; box-shadow:0 0 0 3px #f8e6d4; outline:0; }
+.save-entry,.settings-save,.unlock-card button { border:1px solid #eac5a3; border-radius:17px 14px 18px 13px; color:#715445; background:linear-gradient(135deg,#ffe6bd,#f8cdbb); box-shadow:0 3px 8px #c68e6c35; }
+.save-entry:hover,.settings-save:hover { background:linear-gradient(135deg,#ffdeaa,#f4bdaa); }
+.fruit:focus-visible,.bottle-star:focus-visible,.pool-art:focus-visible { outline:2px solid #ffedbb; outline-offset:3px; }
+@keyframes pool-ring-breathe { from { opacity:.76; } to { opacity:1; } }
+
+@media (max-width:720px) {
+  .main-content { width:auto; max-width:none; margin:0; padding:22px 16px; }
+  .landscape { display:block; width:100%; height:650px; min-height:650px; margin:0; border-radius:17px; background-image:linear-gradient(180deg,#fff0c809 0%,#f6dcea08 49%,#b1cbfa0b 100%),url('assets/storybook-coast-mobile.png'); background-size:cover; background-position:center; }
+  .land-half { position:absolute; left:0; right:auto; width:100%; height:50%; }
+  .day-half { top:0; bottom:auto; }
+  .night-half { left:0; right:auto; top:50%; bottom:auto; }
+  .land-copy { top:20px !important; left:16px !important; width:min(245px,62%); max-width:none; }
+  .night-half .land-copy { top:72px !important; left:16px !important; }
+  .land-copy::before { inset:-11px -18px -16px -12px; }
+  .land-copy h2 { font-size:22px !important; }
+  .land-copy p { max-width:190px; font-size:8px; }
+  .tree-art { left:0; width:74%; height:100%; }
+  .tree-art::before { width:100%; height:66%; }
+  .pool-art { left:62%; top:58%; width:84%; height:72%; }
+  .tree-stat { left:12px; bottom:11px; }
+  .night-stat { right:12px; bottom:11px; }
+  .shore-bottle { left:37%; bottom:8%; transform:translateX(-50%) rotate(-11deg) scale(.82); }
+  .bottle-stars { left:calc(37% - 25px); bottom:calc(8% + 12px); transform:scale(.85); transform-origin:bottom center; }
+  .land-stat { max-width:44%; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landscape::before,.day-half::after,.night-half::after,.pool-art::before,.pool-art::after,.tree-art::before,.fruit,.pool-memory-line { animation:none !important; transition:none !important; }
+}
+
+/* Bright anime coast: interactive memories are drawn as fruit, surf, and a shore bottle. */
+.landscape {
+  display:block; position:relative; isolation:isolate; overflow:hidden;
+  background-image:url('assets/anime-coast-wide.png'); background-size:cover; background-position:center 18%;
+  border-radius:18px; box-shadow:0 10px 25px #557da01c;
+}
+.landscape::before { z-index:1; inset:0; background:linear-gradient(100deg,#fff2bd18 0%,#fff3dc08 48%,#c6d8ff18 100%); mix-blend-mode:screen; opacity:.7; animation:coast-air 10s ease-in-out infinite alternate; pointer-events:none; }
+.landscape::after { z-index:9; inset:0; left:0; bottom:auto; width:auto; height:auto; clip-path:none; background:linear-gradient(180deg,#fff5db08 0%,transparent 65%,#fff5dd13 100%); pointer-events:none; }
+.land-half { position:absolute; top:0; width:50%; height:100%; overflow:visible; background:transparent !important; }
+.day-half { left:0; right:auto; color:#384f3b; }
+.night-half { left:50%; right:auto; color:#384c66; }
+.sun-disc,.moon-disc,.tree-canopy,.tree-trunk,.tree-branch,.tree-ground,.pool-rock,.pool-plant,.pool-water,.shoreline,.land-divider { display:none !important; }
+.day-half::after,.night-half::after { z-index:1; inset:0; pointer-events:none; }
+.day-half::after { background:linear-gradient(100deg,#fff1a726 0%,transparent 62%); animation:coast-air 13s ease-in-out infinite alternate; }
+.night-half::after { background:linear-gradient(100deg,transparent 12%,#a9d8f414 100%); animation:evening-air 11s ease-in-out infinite alternate; }
+
+.tree-art { z-index:4; left:0; right:auto; top:0; bottom:auto; width:82%; height:100%; cursor:pointer; transform:none !important; }
+.tree-art::before { content:""; position:absolute; z-index:1; left:0; top:0; width:86%; height:56%; border-radius:47% 53% 48% 52%; background:radial-gradient(ellipse at 25% 26%,#faffbd28 0 8%,transparent 27%),radial-gradient(ellipse at 65% 37%,#d2f48721 0 9%,transparent 26%),radial-gradient(ellipse at 42% 67%,#fff7c01b 0 6%,transparent 24%); mix-blend-mode:screen; filter:blur(1px); pointer-events:none; transform-origin:top left; animation:canopy-breeze 7s ease-in-out infinite alternate; }
+.tree-fruits { position:absolute; inset:0; z-index:4; pointer-events:none; }
+.fruit { position:absolute; display:grid; place-items:center; width:22px; height:27px; padding:0; border:0; border-radius:0; background:transparent !important; box-shadow:none !important; cursor:pointer; pointer-events:auto; transform:translate(-50%,-50%); animation:none !important; }
+.fruit::after { content:none !important; }
+.fruit svg { display:block; width:100%; height:100%; overflow:visible; filter:drop-shadow(1px 2px 1.5px #39543566); transform-origin:50% 12%; animation:branch-fruit-sway 6s ease-in-out infinite alternate; animation-delay:var(--fruit-delay,0s); transition:filter .2s; }
+.fruit-skin { stroke:#8f5142; stroke-opacity:.45; stroke-width:.8; }
+.fruit-glint { fill:none; stroke:#fff2d5; stroke-width:1.6; stroke-linecap:round; opacity:.7; }
+.fruit-stem { fill:none; stroke:#73543b; stroke-width:1.7; stroke-linecap:round; }
+.fruit-leaf { fill:#83a957; stroke:#4f7747; stroke-width:.7; }
+.fruit:hover svg,.fruit:focus-visible svg { filter:drop-shadow(0 0 4px #fff4b8) drop-shadow(1px 2px 2px #39543577); animation-duration:1.2s; }
+.fruit:focus-visible { outline:1px solid #fff5c9; outline-offset:2px; border-radius:50%; }
+
+/* A memory is a curved shore wave. There are no circular ring markers. */
+.pool-art { z-index:4; position:absolute; left:0; right:auto; top:35%; bottom:auto; width:100%; height:65%; border:0; outline:0; border-radius:0; background:transparent; transform:none; overflow:visible; }
+.pool-art::before,.pool-art::after { content:none !important; display:none !important; }
+.pool-mementos { position:absolute; z-index:2; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.wave-memory { opacity:var(--wave-opacity,.7); cursor:pointer; pointer-events:auto; outline:none; transition:opacity .3s ease; }
+.wave-body { fill:#5bbbd6; fill-opacity:.22; stroke:none; transition:fill-opacity .3s ease; }
+.wave-hit { fill:none; stroke:transparent; stroke-width:18; stroke-linecap:round; vector-effect:non-scaling-stroke; pointer-events:stroke; }
+.wave-crest { fill:none; stroke:#eaffff; stroke-width:3.2; stroke-opacity:.86; stroke-linecap:round; stroke-linejoin:round; filter:drop-shadow(0 1px 1px #fff9); pointer-events:none; }
+.wave-foam { fill:none; stroke:#fff; stroke-width:2.1; stroke-opacity:.78; stroke-linecap:round; stroke-dasharray:1 7; animation:foam-slide 7s linear infinite; animation-delay:var(--wave-delay,0s); pointer-events:none; }
+.wave-memory.memory-settled { opacity:.34; }
+.wave-memory:hover,.wave-memory:focus-visible { opacity:1; }
+.wave-memory:hover .wave-body,.wave-memory:focus-visible .wave-body { fill-opacity:.34; }
+.wave-memory:hover .wave-crest,.wave-memory:focus-visible .wave-crest { stroke:#fff; stroke-width:4.4; stroke-opacity:1; filter:drop-shadow(0 1px 2px #fff); }
+.wave-memory:hover .wave-foam,.wave-memory:focus-visible .wave-foam { stroke-width:3.2; stroke-opacity:1; }
+
+.land-copy { z-index:6; top:clamp(22px,5vh,58px); left:clamp(20px,4vw,58px); max-width:40%; isolation:isolate; text-shadow:0 1px 5px #fff8dc; }
+.land-copy::before { content:""; position:absolute; z-index:-1; inset:-10px -22px -13px -10px; border-radius:45%; background:radial-gradient(ellipse at 34% 35%,#fff7e9d9 0%,#fff5eac2 52%,#fff6eb00 100%); filter:blur(4px); pointer-events:none; }
+.land-label { color:#67804f; }
+.land-copy h2 { color:#364d39 !important; text-shadow:0 1px 5px #fff8df; }
+.land-copy p { color:#50644d !important; }
+.night-half .land-copy { left:clamp(20px,3vw,48px); }
+.night-half .land-copy::before { background:radial-gradient(ellipse at 40% 36%,#f4f5ffe0 0%,#eff4ffd0 52%,#eef3ff00 100%); }
+.night-half .land-label { color:#5e7798; }
+.night-half .land-copy h2 { color:#344b68 !important; text-shadow:0 1px 5px #eef5ff; }
+.night-half .land-copy p { color:#4d6280 !important; }
+.land-stat { z-index:11; bottom:clamp(12px,2.7vh,25px); padding:4px 7px; border-radius:12px; background:#fffaed85; color:#526044; opacity:.78; box-shadow:none; text-shadow:0 1px 4px #fff5d6; backdrop-filter:none; pointer-events:none; }
+.land-stat strong { font-size:9px; }
+.land-stat small { font-size:7px; }
+.tree-stat { left:clamp(12px,2vw,26px); }
+.night-stat { right:clamp(12px,2vw,26px); background:#f3f6ff88; color:#4e607a; }
+
+.shore-bottle { z-index:10; left:50%; bottom:17%; width:58px; height:106px; padding:0; border:0; outline:0; background:transparent; transform:translateX(-50%) rotate(-9deg); filter:drop-shadow(1px 3px 2px #476a5660); animation:shore-bob 7s ease-in-out infinite alternate; cursor:pointer; transition:transform .35s ease; }
+.shore-bottle::after { content:""; position:absolute; z-index:-1; left:-14px; right:-12px; bottom:-9px; height:18px; border-radius:50%; background:radial-gradient(ellipse,#f3dba790 0%,#f8e6b754 48%,transparent 75%); filter:blur(2px); }
+.bottle-cork { position:absolute; z-index:2; top:0; left:21px; width:16px; height:12px; border:1px solid #9c7249; border-radius:3px 3px 2px 2px; background:linear-gradient(90deg,#a5794a,#d3a36b 45%,#8d653f); box-shadow:inset 1px 1px 1px #f6d9a5; }
+.bottle-glass { position:absolute; top:10px; left:5px; width:48px; height:91px; overflow:hidden; border:1px solid #efffffce; border-radius:15px 15px 13px 13px; clip-path:polygon(32% 0,68% 0,70% 13%,86% 20%,95% 29%,96% 89%,87% 100%,13% 100%,4% 89%,5% 29%,14% 20%,30% 13%); background:linear-gradient(110deg,#eafcff92 0%,#83c9e766 32%,#d7f9ff84 53%,#73b5d870 100%); box-shadow:inset 6px 0 7px #fffef0b8,inset -4px -2px 6px #387daa50; }
+.bottle-glass::after { content:""; position:absolute; left:10px; top:14px; width:4px; height:55px; border-radius:8px; background:#ffffff9c; transform:rotate(7deg); }
+.bottle-note { display:none; }
+.shore-bottle:hover { transform:translateX(-50%) translateY(-3px) rotate(-12deg); }
+.shore-bottle.pulled-out { transform:translateX(-50%) translateY(-9px) rotate(-13deg); }
+.shore-bottle.bottle-open .bottle-cork { transform:translate(6px,-10px) rotate(20deg); }
+.shore-bottle:focus-visible { outline:2px solid #fdf6ce; outline-offset:4px; border-radius:20px; }
+.bottle-stars { z-index:11; left:calc(50% - 22px); bottom:calc(17% + 24px); width:44px; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; pointer-events:auto; }
+.bottle-star { padding:0; border:0; background:transparent; text-shadow:0 1px 1px #77551c8a,0 0 4px #fff8bf; font-size:9px !important; line-height:1; cursor:pointer; }
+.story-tooltip { border:1px solid #fff9e9; border-radius:11px 13px 10px 14px; color:#46575d; background:#fffaebf2; box-shadow:0 3px 9px #476d7440; }
+.shoreline { display:none !important; }
+
+@keyframes coast-air { from { opacity:.5; } to { opacity:.78; } }
+@keyframes evening-air { from { opacity:.36; } to { opacity:.67; } }
+@keyframes canopy-breeze { from { transform:rotate(-.25deg) translateX(-1px); opacity:.55; } to { transform:rotate(.45deg) translateX(1px); opacity:.84; } }
+@keyframes branch-fruit-sway { from { transform:rotate(-1.4deg) translateY(0); } to { transform:rotate(1.4deg) translateY(-.6px); } }
+@keyframes foam-slide { from { stroke-dashoffset:0; } to { stroke-dashoffset:-24; } }
+@keyframes shore-bob { from { margin-top:0; rotate:-.7deg; } to { margin-top:-2px; rotate:.9deg; } }
+
+@media (max-width:720px) {
+  .main-content { width:auto; max-width:none; margin:0; padding:22px 16px; }
+  .landscape { width:100%; height:490px; min-height:490px; margin:0; border-radius:15px; background-image:url('assets/anime-coast-mobile.png'); background-size:cover; background-position:center 52%; }
+  .land-half { top:0; left:0; right:auto; width:50%; height:100%; }
+  .night-half { left:50%; }
+  .day-half .land-copy,.night-half .land-copy { top:17px !important; left:9px !important; width:calc(100% - 18px); max-width:none; }
+  .land-copy::before { inset:-10px -11px -12px -7px; }
+  .land-copy h2 { margin:7px 0 4px; font-size:clamp(14px,3.7vw,17px) !important; line-height:1.08 !important; }
+  .land-copy p { max-width:100%; font-size:7px; line-height:1.3; }
+  .land-label { font-size:6px; letter-spacing:1px; }
+  .tree-art { left:0; width:100%; height:100%; }
+  .tree-art::before { width:100%; height:48%; }
+  .fruit { width:18px; height:22px; }
+  .pool-art { left:0; top:34%; width:100%; height:66%; }
+  .wave-crest { stroke-width:3.5; }
+  .wave-foam { stroke-width:2.3; }
+  .land-stat { bottom:11px; padding:3px 5px; }
+  .land-stat strong { font-size:8px; }
+  .land-stat small { font-size:6px; }
+  .tree-stat { left:7px; }
+  .night-stat { right:7px; }
+  .shore-bottle { left:50%; bottom:12%; transform:translateX(-50%) rotate(-9deg) scale(.78); transform-origin:bottom center; }
+  .shore-bottle:hover { transform:translateX(-50%) translateY(-3px) rotate(-12deg) scale(.78); }
+  .shore-bottle.pulled-out { transform:translateX(-50%) translateY(-7px) rotate(-13deg) scale(.78); }
+  .bottle-stars { left:calc(50% - 18px); bottom:calc(12% + 20px); width:36px; transform:scale(.82); transform-origin:bottom center; }
+  .bottle-star { font-size:8px !important; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landscape::before,.day-half::after,.night-half::after,.tree-art::before,.fruit svg,.wave-foam,.shore-bottle { animation:none !important; transition:none !important; }
+}
+
+/* Coastline refinement: titles clear the fruit canopy; stories become long surf bands. */
+.landscape {
+  background-image:url('assets/anime-coast-wide.png?v=soft-pastel-3');
+  background-position:center 18%;
+}
+.night-half::after {
+  inset:0 0 auto !important;
+  height:64%;
+  background:transparent;
+  mix-blend-mode:normal;
+  opacity:1;
+  animation:none;
+}
+@keyframes evening-air { from { opacity:.68; } to { opacity:1; } }
+.day-half .land-copy {
+  left:56%; top:clamp(22px,5vh,58px); width:41%; max-width:41%;
+}
+.night-half .land-copy {
+  left:43%; top:clamp(22px,5vh,58px); width:53%; max-width:53%;
+}
+.land-copy::before {
+  inset:-12px -12px -13px -12px;
+  border-radius:30% 34% 29% 32%;
+  background:radial-gradient(ellipse at 40% 34%,#fff7e8e8 0%,#fff5e9c9 63%,#fff5e900 100%);
+  filter:blur(3px);
+}
+.night-half .land-copy::before {
+  background:radial-gradient(ellipse at 42% 36%,#f7efffe8 0%,#f2eaffcb 62%,#f2eaff00 100%);
+}
+.tree-art::before { top:8%; height:55%; }
+.fruit { z-index:5; }
+.fruit svg { animation-duration:4.8s; }
+
+.pool-art {
+  position:absolute; z-index:4; left:0; top:36%; width:100%; height:64%;
+  overflow:visible; pointer-events:none;
+}
+.pool-art::before {
+  content:"" !important; display:block !important; position:absolute; z-index:1; inset:0;
+  clip-path:polygon(0 0,100% 0,100% 76%,80% 70%,60% 58%,40% 43%,20% 28%,0 20%);
+  background:linear-gradient(108deg,transparent 0%,#e7faff00 24%,#e7faff44 42%,#c8f4f640 53%,#ffffff05 68%,transparent 100%);
+  background-size:230% 100%; mix-blend-mode:screen;
+  animation:water-sheen 10s ease-in-out infinite alternate; pointer-events:none;
+}
+.pool-art::after {
+  content:"" !important; display:block !important; position:absolute; z-index:1; inset:0;
+  clip-path:polygon(0 12%,100% 67%,100% 76%,80% 70%,60% 58%,40% 43%,20% 28%,0 20%);
+  background:linear-gradient(100deg,#ffffff0a 0%,#def9ff28 32%,#c9f3fa30 52%,#fffdf224 72%,#d5f7ff10 100%);
+  mix-blend-mode:screen; pointer-events:none;
+  animation:coast-surge 7.5s ease-in-out infinite alternate;
+}
+@keyframes water-sheen { from { background-position:100% 0; opacity:.34; } to { background-position:0 0; opacity:.84; } }
+@keyframes coast-surge { from { transform:translateY(-2px); opacity:.45; } to { transform:translateY(3px); opacity:.86; } }
+.pool-mementos { inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.wave-memory { pointer-events:none; }
+.wave-memory { animation:none; }
+.wave-hit { pointer-events:stroke; }
+.wave-body { fill:none; fill-opacity:0; }
+.wave-crest { stroke:transparent; stroke-opacity:0; stroke-width:4; vector-effect:non-scaling-stroke; transition:stroke .25s,stroke-opacity .25s,filter .25s; }
+.wave-foam { stroke:transparent; stroke-opacity:0; stroke-width:2.6; stroke-dasharray:2 7; vector-effect:non-scaling-stroke; }
+.wave-memory:hover .wave-crest,.wave-memory:focus-visible .wave-crest { stroke:#fffdf3; stroke-opacity:.42; stroke-width:5; filter:blur(.7px); }
+.wave-memory:hover .wave-foam,.wave-memory:focus-visible .wave-foam { stroke:#fff; stroke-opacity:.44; }
+.land-stat {
+  padding:6px 9px; border:1px solid #ffffff9c; border-radius:12px 10px 13px 11px;
+  opacity:1; color:#3e474a; background:#f0f2f380;
+  box-shadow:0 2px 8px #3f505522; text-shadow:0 1px 2px #ffffffaa;
+}
+.tree-stat,.night-stat { color:#3e474a; background:#f0f2f380; }
+.land-stat small { color:#465054; opacity:1; }
+
+.shore-bottle {
+  bottom:13%; transform:translateX(-50%) rotate(-10deg);
+  animation:shore-bob 6.5s ease-in-out infinite alternate;
+}
+.shore-bottle::before {
+  content:""; position:absolute; z-index:-1; left:-16px; right:-14px; bottom:-8px;
+  height:23px; border-radius:50%;
+  background:radial-gradient(ellipse,#80624072 0%,#b79a6260 44%,transparent 74%);
+  filter:blur(2px); pointer-events:none;
+}
+.shore-bottle::after {
+  content:""; position:absolute; z-index:5; left:-22px; right:-22px; bottom:-3px;
+  height:59px;
+  background:radial-gradient(ellipse at 52% 14%,#f0d7a2b0 0%,#e7c68dbd 53%,#dabe826c 84%,#d6bd8b00 100%),linear-gradient(130deg,#fff3d013 0 34%,transparent 35% 70%,#bb995c12 71%);
+  clip-path:path("M 0 59 C 12 56 16 47 27 39 C 37 30 42 13 50 7 C 58 2 65 14 73 28 C 83 42 91 54 102 59 L 102 60 L 0 60 Z");
+  filter:blur(.9px); transition:transform .42s ease,opacity .42s ease;
+  pointer-events:none;
+}
+.bottle-glass {
+  border-color:#efffffde;
+  background:linear-gradient(108deg,#e6fbffb8 0%,#82c9e789 31%,#d9faffb8 54%,#78b8d99e 100%);
+}
+.shore-bottle:hover { transform:translateX(-50%) translateY(-2px) rotate(-11deg); }
+.shore-bottle.pulled-out { transform:translateX(-50%) translateY(-23px) rotate(-13deg); }
+.shore-bottle.pulled-out::after { transform:translateY(37px); opacity:.35; }
+
+@keyframes branch-fruit-sway { from { transform:rotate(-2.1deg); } to { transform:rotate(2.1deg); } }
+@keyframes canopy-breeze { from { transform:rotate(-.65deg) translateX(-2px); opacity:.5; } to { transform:rotate(.75deg) translateX(2.5px); opacity:.9; } }
+@keyframes shore-bob { from { margin-top:0; rotate:-1.3deg; } to { margin-top:-3px; rotate:1.3deg; } }
+
+@media (max-width:720px) {
+  .landscape {
+    background-image:url('assets/anime-coast-mobile.png?v=soft-pastel-3');
+    background-position:center 52%;
+  }
+  .day-half .land-copy { left:7px; top:17px; width:calc(100% - 14px); max-width:none; }
+  .night-half .land-copy { left:7px; top:17px; width:calc(100% - 14px); max-width:none; }
+  .land-copy::before { inset:-8px -7px -10px; }
+  .night-half::after {
+    height:58%;
+    background:linear-gradient(105deg,#eab7e700 0%,#eab7e73d 14%,#d9a4eb73 54%,#c5a8f184 100%);
+    mix-blend-mode:color;
+    animation:evening-air 12s ease-in-out infinite alternate;
+  }
+  .pool-art { left:0; top:36%; width:100%; height:64%; }
+  .pool-art::before { clip-path:polygon(0 0,100% 0,100% 80%,80% 72%,60% 58%,40% 42%,20% 26%,0 19%); }
+  .pool-art::after { clip-path:polygon(0 11%,100% 71%,100% 80%,80% 72%,60% 58%,40% 42%,20% 26%,0 19%); }
+  .land-stat { padding:4px 6px; }
+  .shore-bottle { left:50%; bottom:12%; transform:translateX(-50%) rotate(-10deg) scale(.78); transform-origin:bottom center; }
+  .shore-bottle:hover { transform:translateX(-50%) translateY(-2px) rotate(-11deg) scale(.78); }
+  .shore-bottle.pulled-out { transform:translateX(-50%) translateY(-23px) rotate(-13deg) scale(.78); }
+  .bottle-stars { bottom:calc(12% + 20px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .landscape::before,.day-half::after,.night-half::after,.tree-art::before,.fruit svg,.wave-memory,.wave-foam,.shore-bottle,.pool-art::before,.pool-art::after { animation:none !important; transition:none !important; }
+}
